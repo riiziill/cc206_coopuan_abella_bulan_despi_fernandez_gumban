@@ -35,18 +35,11 @@ class signIn extends StatelessWidget {
           ),
           SizedBox(height: 20),
           ElevatedButton(
-            onPressed: () {
-            },
+            onPressed: () {},
             child: Text('Sign Up'),
           ),
         ],
       ),
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: signIn(),
-  ));
 }

@@ -1,5 +1,6 @@
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/sign_in.dart';
 import 'package:flutter/material.dart';
-import 'package:app/features/sign_in.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -35,4 +36,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
