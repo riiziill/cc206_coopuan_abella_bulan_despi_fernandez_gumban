@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 class signIn extends StatelessWidget {
+  const signIn({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Back to Login',
           style: TextStyle(
             fontSize: 15,
-            color: const Color.fromARGB(255, 10, 1, 112),
+            color: Color.fromARGB(255, 10, 1, 112),
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -20,8 +22,8 @@ class signIn extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 0),
+              const Padding(
+                padding: EdgeInsets.only(top: 0),
                 child: SizedBox(
                   width: 300,
                   child: Center(
@@ -29,15 +31,15 @@ class signIn extends StatelessWidget {
                       'SIGN UP',
                       style: TextStyle(
                         fontSize: 30,
-                        color: const Color.fromARGB(255, 10, 1, 112),
+                        color: Color.fromARGB(255, 10, 1, 112),
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 20),
-              SizedBox(
+              const SizedBox(height: 20),
+              const SizedBox(
                 width: 300,
                 child: TextField(
                   decoration: InputDecoration(
@@ -46,8 +48,8 @@ class signIn extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 10),
-              SizedBox(
+              const SizedBox(height: 10),
+              const SizedBox(
                 width: 300,
                 child: TextField(
                   decoration: InputDecoration(
@@ -57,8 +59,8 @@ class signIn extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 10),
-              SizedBox(
+              const SizedBox(height: 10),
+              const SizedBox(
                 width: 300,
                 child: TextField(
                   decoration: InputDecoration(
@@ -68,8 +70,8 @@ class signIn extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 10),
-              SizedBox(
+              const SizedBox(height: 10),
+              const SizedBox(
                 width: 300,
                 child: TextField(
                   decoration: InputDecoration(
@@ -79,12 +81,12 @@ class signIn extends StatelessWidget {
                   obscureText: true,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               SizedBox(
                 width: 100,
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: Text('Sign Up'),
+                  child: const Text('Sign Up'),
                 ),
               ),
             ],
