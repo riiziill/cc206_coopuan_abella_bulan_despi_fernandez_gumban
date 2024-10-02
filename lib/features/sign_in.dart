@@ -5,12 +5,14 @@ class signIn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Back to Login',  
-              style: TextStyle(
-              fontSize: 15,
-              color: const Color.fromARGB(255, 10, 1, 112),
-              fontWeight: FontWeight.bold),),
-        
+        title: Text(
+          'Back to Login',
+          style: TextStyle(
+            fontSize: 15,
+            color: const Color.fromARGB(255, 10, 1, 112),
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: Center(
         child: Padding(
@@ -18,17 +20,23 @@ class signIn extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              SizedBox(height: 10),
-              SizedBox(
-                width: 300,
-                child: Text('SIGN UP',
-                 style: TextStyle(
-                 fontSize:30,
-                 color: const Color.fromARGB(255, 10, 1, 112),
-                 fontWeight: FontWeight.bold,
-                 )
+              Padding(
+                padding: const EdgeInsets.only(top: 0),
+                child: SizedBox(
+                  width: 300,
+                  child: Center(
+                    child: Text(
+                      'SIGN UP',
+                      style: TextStyle(
+                        fontSize: 30,
+                        color: const Color.fromARGB(255, 10, 1, 112),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                 ),
               ),
+              SizedBox(height: 20),
               SizedBox(
                 width: 300,
                 child: TextField(
@@ -73,7 +81,7 @@ class signIn extends StatelessWidget {
               ),
               SizedBox(height: 20),
               SizedBox(
-                width: 100, 
+                width: 100,
                 child: ElevatedButton(
                   onPressed: () {},
                   child: Text('Sign Up'),
