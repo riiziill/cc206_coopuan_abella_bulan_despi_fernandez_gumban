@@ -8,7 +8,7 @@ class logIn extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Welcome to DigiCoop',
+          'Welcome to DigiCOOP',
           style: TextStyle(
             fontSize: 15,
             color: Color.fromARGB(255, 10, 1, 112),
@@ -25,7 +25,7 @@ class logIn extends StatelessWidget {
               const SizedBox(),
               const Image(
                 image: AssetImage('assets/MAIN_LOGO.png'),
-                height: 400,
+                height: 300,
                 width: 400,
               ),
               const Padding(
@@ -72,6 +72,14 @@ class logIn extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {},
                   child: const Text('Log In'),
+                ),
+              ),
+              const SizedBox(height: 20),
+              SizedBox(
+                width: 100,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Sign Up'),
                 ),
               ),
             ],
