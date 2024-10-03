@@ -25,7 +25,7 @@ class logIn extends StatelessWidget {
               const SizedBox(),
               const Image(
                 image: AssetImage('assets/MAIN_LOGO.png'),
-                height: 300,
+                height: 350,
                 width: 400,
               ),
               const Padding(
@@ -74,12 +74,30 @@ class logIn extends StatelessWidget {
                   child: const Text('Log In'),
                 ),
               ),
-              const SizedBox(height: 20),
-              SizedBox(
-                width: 100,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: const Text('Sign Up'),
+              const Padding(
+                padding: EdgeInsets.only(top: 20),
+                child: SizedBox(
+                  width: 300,
+                  child: Center(
+                    child: Text(
+                      "Don't have an account yet?",
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Color.fromARGB(255, 10, 1, 112),
+                        fontWeight: FontWeight.normal,
+                      ),  
+                    ),
+                  ),
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                },
+                child: const Text(
+                  'Sign Up',
+                  style: TextStyle(
+                    color: Colors.blue,
+                  ),
                 ),
               ),
             ],
