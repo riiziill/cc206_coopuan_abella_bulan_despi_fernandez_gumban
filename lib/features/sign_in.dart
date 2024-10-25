@@ -36,7 +36,7 @@ class _signInState extends State<signIn> {
         child: Form(
           key: formkey,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const Image(
                 image: AssetImage('assets/MAIN_LOGO.png'),
@@ -46,7 +46,7 @@ class _signInState extends State<signIn> {
               const Text(
                 'SIGN UP',
                 style: TextStyle(
-                  fontSize: 30,
+                  fontSize: 20,
                   color: Color(0xFF0A0170),
                   fontWeight: FontWeight.bold,
                 ),
@@ -66,7 +66,6 @@ class _signInState extends State<signIn> {
                     ),
                     border: UnderlineInputBorder(),
                   ),
-                  keyboardType: TextInputType.numberWithOptions(),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter your username';
@@ -194,10 +193,9 @@ class _signInState extends State<signIn> {
               const SizedBox(height: 20),
               SizedBox(
                 width: 100,
-                child: ElevatedButton(
+                child: OutlinedButton(
                   onPressed: () {
                     if (formkey.currentState!.validate()) {}
-                    
                   },
                   child: const Text('Sign Up'),
                 ),
