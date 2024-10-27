@@ -31,7 +31,7 @@ class _signInState extends State<signIn> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 const Padding(
-                  padding: EdgeInsets.only(left: 25.0),
+                  padding: EdgeInsets.only(left: 30.0),
                   child: Image(
                     image: AssetImage('assets/MAIN_LOGO.png'),
                     height: 200,
