@@ -88,6 +88,9 @@ class _signInState extends State<signIn> {
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter your email';
+                      } else if (!RegExp(r'^[\w\.-]+@wvsu\.edu\.ph$')
+                          .hasMatch(value)) {
+                        return 'Email must be @wvsu.edu.ph';
                       }
                       return null;
                     },
@@ -113,6 +116,8 @@ class _signInState extends State<signIn> {
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter your ID';
+                      } else if (!RegExp(r'^[a-zA-Z0-9]{9}$').hasMatch(value)) {
+                        return 'ID must be 9 characters';
                       }
                       return null;
                     },
@@ -127,7 +132,7 @@ class _signInState extends State<signIn> {
                       child: TextFormField(
                         controller: password1Field,
                         decoration: InputDecoration(
-                          labelText: 'WVSU PASSWORD',
+                          labelText: 'PASSWORD',
                           labelStyle: const TextStyle(fontSize: 10.0),
                           border: const OutlineInputBorder(
                             borderRadius:
@@ -151,7 +156,7 @@ class _signInState extends State<signIn> {
                         obscureText: hidePass1,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please enter your password';
+                            return 'Please enter password';
                           }
                           return null;
                         },
@@ -207,9 +212,7 @@ class _signInState extends State<signIn> {
                       ),
                     ),
                     onPressed: () {
-                      if (formKey.currentState!.validate()) {
-                        // Perform sign-up action
-                      }
+                      if (formKey.currentState!.validate()) {}
                     },
                     child: const Text('Sign Up'),
                   ),
@@ -223,9 +226,7 @@ class _signInState extends State<signIn> {
                       style: TextStyle(color: Colors.black),
                     ),
                     GestureDetector(
-                      onTap: () {
-                        // Prototype only, does not navigate
-                      },
+                      onTap: () {},
                       child: const Text(
                         'LOGIN',
                         style: TextStyle(
