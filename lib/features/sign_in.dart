@@ -217,11 +217,36 @@ class _signInState extends State<signIn> {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
-                              content: const Text('SIGN UP SUCCESSFUL'),
+                              title: Row(
+                                children: [
+                                  const Icon(Icons.check_circle,
+                                      color: Colors.green),
+                                  const SizedBox(width: 10),
+                                  const Text(
+                                    'Success',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              content: const Text(
+                                'Congratulations, your account has been successfully created.',
+                                style: TextStyle(fontSize: 14),
+                              ),
                               actions: [
-                                TextButton(
-                                  child: const Text('ENTER'),
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: const Color(0xFF0A0170),
+                                    foregroundColor: Colors.white,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20.0),
+                                    ),
+                                  ),
                                   onPressed: () => Navigator.pop(context),
+                                  child: const Text('CONTINUE'),
+                                  // Navigator.pushNamed(context, 'logIn');
                                 ),
                               ],
                             );
@@ -232,14 +257,34 @@ class _signInState extends State<signIn> {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
+                              title: Row(
+                                children: [
+                                  const Icon(Icons.warning, color: Colors.red),
+                                  const SizedBox(width: 10),
+                                  const Text(
+                                    'Errors Found',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                ],
+                              ),
                               content: const Text(
-                                  'SOME FIELDS ARE MISSING OR NOT ENTERRED CORRECTLY'),
+                                'One of the required fields is empty or contains invalid data. Please check your input.',
+                                style: TextStyle(fontSize: 14),
+                              ),
                               actions: [
-                                TextButton(
-                                  child: const Text('CLOSE'),
-                                  onPressed: () {
-                                    // Navigator.pushNamed(context, 'logIn');
-                                  },
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: const Color(0xFF0A0170),
+                                    foregroundColor: Colors.white,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20.0),
+                                    ),
+                                  ),
+                                  onPressed: () => Navigator.pop(context),
+                                  child: const Text('OKAY'),
                                 ),
                               ],
                             );
