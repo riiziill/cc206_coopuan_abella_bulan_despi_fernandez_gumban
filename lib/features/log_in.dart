@@ -162,7 +162,7 @@ class _logInState extends State<logIn> {
                                   ),
                                   onPressed: () => Navigator.pop(context),
                                   child: const Text('CONTINUE'),
-                                  Navigator.pushNamed(context, 'signUp');
+                                  // Navigator.pushNamed(context, 'signUp');
                                 ),
                               ],
                             );
@@ -221,7 +221,7 @@ class _logInState extends State<logIn> {
                     ),
                     TextButton(
                       onPressed: () {
-                        // Navigator.pushNamed(context, 'logIn');
+                        Navigator.pushNamed(context, 'signIn');
                       },
                       child: const Text(
                         'SIGN UP',
