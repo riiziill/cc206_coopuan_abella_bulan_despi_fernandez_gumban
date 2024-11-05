@@ -212,7 +212,40 @@ class _signInState extends State<signIn> {
                       ),
                     ),
                     onPressed: () {
-                      if (formKey.currentState!.validate()) {}
+                      if (formKey.currentState!.validate()) {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              content: const Text('SIGN UP SUCCESSFUL'),
+                              actions: [
+                                TextButton(
+                                  child: const Text('ENTER'),
+                                  onPressed: () => Navigator.pop(context),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      } else {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              content: const Text(
+                                  'SOME FIELDS ARE MISSING OR NOT ENTERRED CORRECTLY'),
+                              actions: [
+                                TextButton(
+                                  child: const Text('CLOSE'),
+                                  onPressed: () {
+                                    // Navigator.pushNamed(context, 'logIn');
+                                  },
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      }
                     },
                     child: const Text('Sign Up'),
                   ),
@@ -225,8 +258,10 @@ class _signInState extends State<signIn> {
                       'Already a user? ',
                       style: TextStyle(color: Colors.black),
                     ),
-                    GestureDetector(
-                      onTap: () {},
+                    TextButton(
+                      onPressed: () {
+                        // Navigator.pushNamed(context, 'logIn');
+                      },
                       child: const Text(
                         'LOGIN',
                         style: TextStyle(
