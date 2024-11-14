@@ -160,9 +160,9 @@ class _logInState extends State<logIn> {
                                       borderRadius: BorderRadius.circular(20.0),
                                     ),
                                   ),
-                                  onPressed: () => Navigator.pop(context),
+                                  onPressed: () =>
+                                      Navigator.pushNamed(context, 'homepage'),
                                   child: const Text('CONTINUE'),
-                                  // Navigator.pushNamed(context, 'signUp');
                                 ),
                               ],
                             );
