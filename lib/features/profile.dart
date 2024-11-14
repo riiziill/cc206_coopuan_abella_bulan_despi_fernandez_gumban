@@ -56,7 +56,7 @@ class _ProfileState extends State<Profile> {
         ),
       ),
     );
-  }
+  } 
 
   Widget _buildOutlinedButton(String text, VoidCallback onPressed) {
     return SizedBox(
