@@ -95,17 +95,17 @@ class _HomePageState extends State<HomePage> {
       hintText: 'Search...',
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8.0),
-        borderSide: const BorderSide(color: Color(0xFF0A264A)), // Set outline color here
+        borderSide: const BorderSide(color: Color(0xFF0A264A)), 
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8.0),
-        borderSide: const BorderSide(color: Color(0xFF0A264A)), // Set outline color when enabled
+        borderSide: const BorderSide(color: Color(0xFF0A264A)), 
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8.0),
-        borderSide: const BorderSide(color: Color(0xFF0A264A), width: 2.0), // Set outline color when focused
+        borderSide: const BorderSide(color: Color(0xFF0A264A), width: 2.0), 
       ),
-      prefixIcon: const Icon(Icons.search, color: Color(0xFF0A264A)), // Change icon color as well
+      prefixIcon: const Icon(Icons.search, color: Color(0xFF0A264A)), l
     ),
     onChanged: (query) {
       setState(() {
@@ -142,8 +142,8 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-  type: BottomNavigationBarType.fixed,  // Ensures the colors apply as expected
-  backgroundColor: const Color(0xFF0A264A),  // Set the background color to #0a264a
+  type: BottomNavigationBarType.fixed,  
+  backgroundColor: const Color(0xFF0A264A), 
   items: const [
     BottomNavigationBarItem(
       icon: Icon(Icons.home),
@@ -163,8 +163,8 @@ class _HomePageState extends State<HomePage> {
     ),
   ],
   currentIndex: _selectedIndex,
-  selectedItemColor: Colors.white, // Set selected icon color to white
-  unselectedItemColor: Colors.white54, // Optionally, make unselected icons slightly faded
+  selectedItemColor: Colors.white,
+  unselectedItemColor: Colors.white54, 
   onTap: _onItemTapped,
 ),
 
@@ -229,7 +229,7 @@ class CategoryIcons extends StatelessWidget {
         ),
         child: Icon(
           icon,
-          color: isSelected ? Colors.white : const Color(0xFF0A264A), // Set icon color to match the navbar background
+          color: isSelected ? Colors.white : const Color(0xFF0A264A), 
         ),
       ),
     );
@@ -258,13 +258,13 @@ class ServiceTile extends StatelessWidget {
       child: Card(
         margin: const EdgeInsets.all(8.0),
         child: Container(
-          height: 150,  // Set height for a consistent background image area
+          height: 150,  
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(imagePath),
               fit: BoxFit.cover,
               colorFilter: ColorFilter.mode(
-                Colors.black.withOpacity(0.3), // Darken image for text readability
+                Colors.black.withOpacity(0.3),
                 BlendMode.darken,
               ),
             ),
@@ -348,7 +348,7 @@ class MenuScreen extends StatelessWidget {
             padding: EdgeInsets.all(8.0),
             child: Column(
               children: [
-                Image.network('https://via.placeholder.com/150'), // Placeholder for Kiosk image
+                Image.network('https://via.placeholder.com/150'), 
                 Text('KIOSK 1'),
                 Text('9:00 A.M. - 4:00 P.M.'),
               ],
@@ -365,7 +365,7 @@ class MenuScreen extends StatelessWidget {
             itemCount: 9,
             itemBuilder: (context, index) {
               return MenuItem(
-                imageUrl: 'https://via.placeholder.com/100', // Placeholder for food image
+                imageUrl: 'https://via.placeholder.com/100',
                 itemNumber: index + 1,
               );
             },
@@ -381,7 +381,7 @@ class MenuScreen extends StatelessWidget {
             itemCount: 3,
             itemBuilder: (context, index) {
               return MenuItem(
-                imageUrl: 'https://via.placeholder.com/100', // Placeholder for drink image
+                imageUrl: 'https://via.placeholder.com/100', 
                 itemNumber: index + 1,
               );
             },
