@@ -1,3 +1,4 @@
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/homepage.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/sign_in.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/log_in.dart';
 import 'package:flutter/material.dart';
@@ -36,8 +37,9 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: 'logIn',
       routes: {
-        'logIn': (BuildContext ctc) => logIn(),
-        'signIn': (BuildContext ctc) => signIn(),
+        'logIn': (BuildContext ctc) => const logIn(),
+        'signIn': (BuildContext ctc) => const signIn(),
+        'homePage': (BuildContext ctc) => const HomePage(), 
       }
 //       home: signIn(),
     );
