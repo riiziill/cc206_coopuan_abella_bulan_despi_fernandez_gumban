@@ -82,7 +82,9 @@ class _ProfileState extends State<Profile> {
             SizedBox(
               width: 450,
               child: OutlinedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Accesibility(context);
+                },
                 child: Text('Accessibility',
                     style:
                         TextStyle(color: const Color.fromARGB(255, 0, 0, 0))),
@@ -100,7 +102,9 @@ class _ProfileState extends State<Profile> {
             SizedBox(
               width: 450,
               child: OutlinedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Account(context);
+                },
                 child: Text('Account Setting',
                     style:
                         TextStyle(color: const Color.fromARGB(255, 0, 0, 0))),
@@ -236,6 +240,198 @@ class _ProfileState extends State<Profile> {
               child: Text('Confirm'),
             ),
           ],
+        );
+      },
+    );
+  }
+
+  void Accesibility(BuildContext context) {
+    final List<Color> colors = [
+      Colors.red,
+      Colors.green,
+      Colors.blue,
+      Colors.yellow,
+      Colors.orange,
+    ];
+    Color selectedColor = colors[0];
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          child: StatefulBuilder(
+            builder: (BuildContext context, StateSetter setState) {
+              return Container(
+                width: 300,
+                height: 200,
+                padding: EdgeInsets.all(20.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'Select App Color',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    SizedBox(height: 20),
+                    DropdownButton<Color>(
+                      value: selectedColor,
+                      onChanged: (Color? newValue) {
+                        if (newValue != null) {
+                          setState(() {
+                            selectedColor = newValue;
+                          });
+                        }
+                      },
+                      items: colors.map<DropdownMenuItem<Color>>((Color color) {
+                        return DropdownMenuItem<Color>(
+                          value: color,
+                          child: Container(
+                            width: 70,
+                            height: 30,
+                            color: color,
+                            child: Center(
+                              child: Text(
+                                colorToString(color),
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                    SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Text('Cancel'),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Text('Confirm'),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        );
+      },
+    );
+  }
+
+  String colorToString(Color color) {
+    if (color == Colors.red) return 'Red';
+    if (color == Colors.green) return 'Green';
+    if (color == Colors.blue) return 'Blue';
+    if (color == Colors.yellow) return 'Yellow';
+    if (color == Colors.orange) return 'Orange';
+    return 'Unknown';
+  }
+
+  void Account(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          child: Container(
+            width: 300,
+            padding: EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'Account Settings',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 20),
+                Text(
+                  'Update Account Information',
+                  style: TextStyle(fontSize: 15),
+                ),
+                SizedBox(height: 20),
+                Container(
+                  width: 500,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Name',
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 10),
+                Container(
+                  width: 500,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      labelText: 'ID',
+                      border: OutlineInputBorder(),
+                    ),
+                    readOnly: true,
+                  ),
+                ),
+                SizedBox(height: 10),
+                Container(
+                  width: 500,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Email',
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 10),
+                Container(
+                  width: 500,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Bio',
+                      border: OutlineInputBorder(),
+                    ),
+                    maxLines: 3,
+                  ),
+                ),
+                SizedBox(height: 20),
+                Container(
+                  width: 500,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text('Delete Account',
+                        style: TextStyle(
+                            color: const Color.fromARGB(255, 0, 0, 0))),
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                            const Color.fromARGB(255, 209, 68, 68)),
+                  ),
+                ),
+                SizedBox(height: 10),
+                Container(
+                  width: 500,
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text('Cancel'),
+                  ),
+                ),
+              ],
+            ),
+          ),
         );
       },
     );
