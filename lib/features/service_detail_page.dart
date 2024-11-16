@@ -6,11 +6,11 @@ class ServiceDetailPage extends StatelessWidget {
   final String serviceHours;
 
   const ServiceDetailPage({
-    Key? key,
+    super.key,
     required this.serviceName,
     required this.imagePath,
     required this.serviceHours,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -128,9 +128,9 @@ class ServiceDetailPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: const Text(
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: Text(
               'HAIRCUTS',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
@@ -162,9 +162,9 @@ class ServiceDetailPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: const Text(
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: Text(
               'PRINT SERVICES',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
@@ -196,9 +196,9 @@ class ServiceDetailPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: const Text(
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: Text(
               'CLOTHING',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
@@ -230,9 +230,9 @@ class ServiceDetailPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: const Text(
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: Text(
               'FOODS',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
@@ -253,9 +253,9 @@ class ServiceDetailPage extends StatelessWidget {
               },
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: const Text(
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: Text(
               'DRINKS',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
@@ -287,10 +287,10 @@ class ItemTile extends StatelessWidget {
   final String imagePath;
 
   const ItemTile({
-    Key? key,
+    super.key,
     required this.name,
     required this.imagePath,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
