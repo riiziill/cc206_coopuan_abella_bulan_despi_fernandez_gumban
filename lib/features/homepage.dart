@@ -88,7 +88,6 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
-          // Show the category icons only if we're on the Home tab
           if (_selectedIndex == 0)
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -97,17 +96,17 @@ class _HomePageState extends State<HomePage> {
                   hintText: 'Search...',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8.0),
-                    borderSide: const BorderSide(color: Color(0xFF0A264A)), // Set outline color here
+                    borderSide: const BorderSide(color: Color(0xFF0A264A)),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8.0),
-                    borderSide: const BorderSide(color: Color(0xFF0A264A)), // Set outline color when enabled
+                    borderSide: const BorderSide(color: Color(0xFF0A264A)),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8.0),
-                    borderSide: const BorderSide(color: Color(0xFF0A264A), width: 2.0), // Set outline color when focused
+                    borderSide: const BorderSide(color: Color(0xFF0A264A), width: 2.0),
                   ),
-                  prefixIcon: const Icon(Icons.search, color: Color(0xFF0A264A)), // Change icon color as well
+                  prefixIcon: const Icon(Icons.search, color: Color(0xFF0A264A)),
                 ),
                 onChanged: (query) {
                   setState(() {
@@ -117,7 +116,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           const SizedBox(height: 10),
-          // Category icons are visible only when on Home tab
           if (_selectedIndex == 0)
             CategoryIcons(
               onCategoryTapped: _onCategoryTapped,
@@ -182,14 +180,21 @@ class ServicesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: services.map((service) => ServiceTile(
-        imagePath: service['image']!,
-        serviceName: service['name']!,
-        serviceHours: service['hours']!,
-        onTap: (name, imagePath, hours) => onServiceTapped(context, name, imagePath, hours),
-      )).toList(),
-    );
+    return services.isEmpty
+        ? const Center(
+            child: Text(
+              'No services available in this category.',
+              style: TextStyle(fontSize: 18, color: Colors.black54),
+            ),
+          )
+        : ListView(
+            children: services.map((service) => ServiceTile(
+              imagePath: service['image']!,
+              serviceName: service['name']!,
+              serviceHours: service['hours']!,
+              onTap: (name, imagePath, hours) => onServiceTapped(context, name, imagePath, hours),
+            )).toList(),
+          );
   }
 }
 
@@ -208,7 +213,7 @@ class CategoryIcons extends StatelessWidget {
         children: [
           _buildAnimatedIcon(Icons.fastfood, 'Fast Food'),
           _buildAnimatedIcon(Icons.local_cafe, 'Cafe'),
-          _buildAnimatedIcon(Icons.local_pizza, 'Pizza'),
+          _buildAnimatedIcon(Icons.content_cut, 'Salon'),
           _buildAnimatedIcon(Icons.print, 'Print'),
           _buildAnimatedIcon(Icons.local_mall, 'Mall'),
           _buildAnimatedIcon(Icons.local_offer, 'Offers'),
@@ -258,7 +263,7 @@ class ServiceTile extends StatelessWidget {
       child: Card(
         margin: const EdgeInsets.all(8.0),
         child: Container(
-          height: 150,  // Set height for a consistent background image area
+          height: 150,
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(imagePath),
