@@ -88,7 +88,6 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
-          // Show the category icons only if we're on the Home tab
           if (_selectedIndex == 0)
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -97,17 +96,17 @@ class _HomePageState extends State<HomePage> {
                   hintText: 'Search...',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8.0),
-                    borderSide: const BorderSide(color: Color(0xFF0A264A)), // Set outline color here
+                    borderSide: const BorderSide(color: Color(0xFF0A264A)),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8.0),
-                    borderSide: const BorderSide(color: Color(0xFF0A264A)), // Set outline color when enabled
+                    borderSide: const BorderSide(color: Color(0xFF0A264A)), 
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8.0),
-                    borderSide: const BorderSide(color: Color(0xFF0A264A), width: 2.0), // Set outline color when focused
+                    borderSide: const BorderSide(color: Color(0xFF0A264A), width: 2.0), 
                   ),
-                  prefixIcon: const Icon(Icons.search, color: Color(0xFF0A264A)), // Change icon color as well
+                  prefixIcon: const Icon(Icons.search, color: Color(0xFF0A264A)), 
                 ),
                 onChanged: (query) {
                   setState(() {
