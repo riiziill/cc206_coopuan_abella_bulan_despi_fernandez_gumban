@@ -100,13 +100,13 @@ class _HomePageState extends State<HomePage> {
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8.0),
-                    borderSide: const BorderSide(color: Color(0xFF0A264A)),
+                    borderSide: const BorderSide(color: Color(0xFF0A264A)), // Set outline color when enabled
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8.0),
-                    borderSide: const BorderSide(color: Color(0xFF0A264A), width: 2.0),
+                    borderSide: const BorderSide(color: Color(0xFF0A264A), width: 2.0), // Set outline color when focused
                   ),
-                  prefixIcon: const Icon(Icons.search, color: Color(0xFF0A264A)),
+                  prefixIcon: const Icon(Icons.search, color: Color(0xFF0A264A)), // Change icon color as well
                 ),
                 onChanged: (query) {
                   setState(() {

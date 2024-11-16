@@ -14,7 +14,6 @@ class ServiceDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Dummy data for items (Food, Drinks, Haircuts, Print Services, Clothes)
     final List<Map<String, String>> foods = [
       {'name': 'ITEM #1', 'image': 'assets/item1.png'},
       {'name': 'ITEM #2', 'image': 'assets/item2.png'},
@@ -71,7 +70,6 @@ class ServiceDetailPage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Header section
           Container(
             width: double.infinity,
             height: 150,
@@ -108,7 +106,6 @@ class ServiceDetailPage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
-          // Check service type and display appropriate content
           if (serviceName == 'SALON')
             _buildHaircuts(haircuts)
           else if (serviceName == 'PRINT')
@@ -122,7 +119,6 @@ class ServiceDetailPage extends StatelessWidget {
     );
   }
 
-  // Function to build haircuts category
   Widget _buildHaircuts(List<Map<String, String>> haircuts) {
     return Expanded(
       child: Column(
@@ -140,10 +136,10 @@ class ServiceDetailPage extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               itemCount: haircuts.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3, // Number of items in a row
-                mainAxisSpacing: 16, // Spacing between rows
-                crossAxisSpacing: 16, // Spacing between columns
-                childAspectRatio: 2 / 2.5, // Aspect ratio of each grid item
+                crossAxisCount: 3, 
+                mainAxisSpacing: 16,
+                crossAxisSpacing: 16,
+                childAspectRatio: 2 / 2.5,
               ),
               itemBuilder: (context, index) {
                 final item = haircuts[index];
@@ -156,7 +152,6 @@ class ServiceDetailPage extends StatelessWidget {
     );
   }
 
-  // Function to build print services category
   Widget _buildPrintServices(List<Map<String, String>> printServices) {
     return Expanded(
       child: Column(
@@ -174,10 +169,10 @@ class ServiceDetailPage extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               itemCount: printServices.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3, // Number of items in a row
-                mainAxisSpacing: 16, // Spacing between rows
-                crossAxisSpacing: 16, // Spacing between columns
-                childAspectRatio: 2 / 2.5, // Aspect ratio of each grid item
+                crossAxisCount: 3,
+                mainAxisSpacing: 16,
+                crossAxisSpacing: 16,
+                childAspectRatio: 2 / 2.5,
               ),
               itemBuilder: (context, index) {
                 final item = printServices[index];
@@ -190,7 +185,6 @@ class ServiceDetailPage extends StatelessWidget {
     );
   }
 
-  // Function to build clothes category
   Widget _buildClothes(List<Map<String, String>> clothes) {
     return Expanded(
       child: Column(
@@ -208,10 +202,10 @@ class ServiceDetailPage extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               itemCount: clothes.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3, // Number of items in a row
-                mainAxisSpacing: 16, // Spacing between rows
-                crossAxisSpacing: 16, // Spacing between columns
-                childAspectRatio: 2 / 2.5, // Aspect ratio of each grid item
+                crossAxisCount: 3, 
+                mainAxisSpacing: 16,
+                crossAxisSpacing: 16,
+                childAspectRatio: 2 / 2.5,
               ),
               itemBuilder: (context, index) {
                 final item = clothes[index];
@@ -224,7 +218,6 @@ class ServiceDetailPage extends StatelessWidget {
     );
   }
 
-  // Function to build food and drinks categories
   Widget _buildFoodAndDrinks(List<Map<String, String>> foods, List<Map<String, String>> drinks) {
     return Expanded(
       child: Column(
@@ -242,10 +235,10 @@ class ServiceDetailPage extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               itemCount: foods.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3, // Number of items in a row
-                mainAxisSpacing: 16, // Spacing between rows
-                crossAxisSpacing: 16, // Spacing between columns
-                childAspectRatio: 2 / 2.5, // Aspect ratio of each grid item
+                crossAxisCount: 3,
+                mainAxisSpacing: 16, 
+                crossAxisSpacing: 16,
+                childAspectRatio: 2 / 2.5,
               ),
               itemBuilder: (context, index) {
                 final item = foods[index];
@@ -265,10 +258,10 @@ class ServiceDetailPage extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               itemCount: drinks.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3, // Number of items in a row
-                mainAxisSpacing: 16, // Spacing between rows
-                crossAxisSpacing: 16, // Spacing between columns
-                childAspectRatio: 2 / 2.5, // Aspect ratio of each grid item
+                crossAxisCount: 3,
+                mainAxisSpacing: 16,
+                crossAxisSpacing: 16,
+                childAspectRatio: 2 / 2.5,
               ),
               itemBuilder: (context, index) {
                 final item = drinks[index];
@@ -316,7 +309,6 @@ class ItemTile extends StatelessWidget {
         const SizedBox(height: 4),
         ElevatedButton(
           onPressed: () {
-            // Handle buy action
           },
           child: const Text('BUY'),
         ),
