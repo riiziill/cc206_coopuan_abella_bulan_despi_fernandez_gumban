@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'service_detail_page.dart'; // Import the new file
+import 'service_detail_page.dart';
 
 class homePage extends StatelessWidget {
   const homePage({super.key});
@@ -231,7 +231,7 @@ class CategoryIcons extends StatelessWidget {
         ),
         child: Icon(
           icon,
-          color: isSelected ? Colors.white : const Color(0xFF0A264A), // Set icon color to match the navbar background
+          color: isSelected ? Colors.white : const Color(0xFF0A264A),
         ),
       ),
     );
@@ -259,7 +259,7 @@ class ServiceTile extends StatelessWidget {
       child: Card(
         margin: const EdgeInsets.all(8.0),
         child: Container(
-          height: 150,  // Set height for a consistent background image area
+          height: 150, 
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(imagePath),
