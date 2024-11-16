@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'service_detail_page.dart'; // Import the new file
+import 'service_detail_page.dart';
 
 class homePage extends StatelessWidget {
   const homePage({super.key});
@@ -258,7 +258,7 @@ class ServiceTile extends StatelessWidget {
       child: Card(
         margin: const EdgeInsets.all(8.0),
         child: Container(
-          height: 150,
+          height: 150,  // Set height for a consistent background image area
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(imagePath),
