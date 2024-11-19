@@ -133,12 +133,12 @@ class _logInState extends State<logIn> {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
-                              title: Row(
+                              title: const Row(
                                 children: [
-                                  const Icon(Icons.check_circle,
+                                  Icon(Icons.check_circle,
                                       color: Colors.green),
-                                  const SizedBox(width: 10),
-                                  const Text(
+                                  SizedBox(width: 10),
+                                  Text(
                                     'Success',
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -160,7 +160,7 @@ class _logInState extends State<logIn> {
                                       borderRadius: BorderRadius.circular(20.0),
                                     ),
                                   ),
-                                  onPressed: () => Navigator.pop(context),
+                                  onPressed: () => Navigator.pushNamed(context, 'homePage'),
                                   child: const Text('CONTINUE'),
                                   // Navigator.pushNamed(context, 'signUp');
                                 ),
@@ -173,11 +173,11 @@ class _logInState extends State<logIn> {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
-                              title: Row(
+                              title: const Row(
                                 children: [
-                                  const Icon(Icons.warning, color: Colors.red),
-                                  const SizedBox(width: 10),
-                                  const Text(
+                                  Icon(Icons.warning, color: Colors.red),
+                                  SizedBox(width: 10),
+                                  Text(
                                     'Errors Found',
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
