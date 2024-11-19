@@ -1,6 +1,7 @@
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/sign_in.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/log_in.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/profile.dart';
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/settings.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
           'logIn': (BuildContext ctc) => logIn(),
           'signIn': (BuildContext ctc) => signIn(),
           'profile': (BuildContext ctc) => Profile(),
+                    'setting': (BuildContext ctc) => settings(),
         }
         // home: Profile(),
         );
