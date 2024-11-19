@@ -92,7 +92,7 @@ class Receipt extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                             foregroundColor: Colors.black,
                             backgroundColor: Colors.white, 
-                            side: BorderSide(color: const Color(0xFF0A264A), width: 2),
+                            side: const BorderSide(color: Color(0xFF0A264A), width: 2),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8), 
                             ),
