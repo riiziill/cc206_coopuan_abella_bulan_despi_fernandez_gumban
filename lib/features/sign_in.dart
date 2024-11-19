@@ -217,12 +217,12 @@ class _signInState extends State<signIn> {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
-                              title: Row(
+                              title: const Row(
                                 children: [
-                                  const Icon(Icons.check_circle,
+                                  Icon(Icons.check_circle,
                                       color: Colors.green),
-                                  const SizedBox(width: 10),
-                                  const Text(
+                                  SizedBox(width: 10),
+                                  Text(
                                     'Success',
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
@@ -257,11 +257,11 @@ class _signInState extends State<signIn> {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
-                              title: Row(
+                              title: const Row(
                                 children: [
-                                  const Icon(Icons.warning, color: Colors.red),
-                                  const SizedBox(width: 10),
-                                  const Text(
+                                  Icon(Icons.warning, color: Colors.red),
+                                  SizedBox(width: 10),
+                                  Text(
                                     'Errors Found',
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
