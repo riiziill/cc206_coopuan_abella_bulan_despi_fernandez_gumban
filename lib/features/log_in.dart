@@ -135,8 +135,7 @@ class _logInState extends State<logIn> {
                             return AlertDialog(
                               title: const Row(
                                 children: [
-                                  Icon(Icons.check_circle,
-                                      color: Colors.green),
+                                  Icon(Icons.check_circle, color: Colors.green),
                                   SizedBox(width: 10),
                                   Text(
                                     'Success',
@@ -160,9 +159,9 @@ class _logInState extends State<logIn> {
                                       borderRadius: BorderRadius.circular(20.0),
                                     ),
                                   ),
-                                  onPressed: () => Navigator.pop(context),
+                                  onPressed: () =>
+                                      Navigator.pushNamed(context, 'homePage'),
                                   child: const Text('CONTINUE'),
-                                  // Navigator.pushNamed(context, 'signUp');
                                 ),
                               ],
                             );
