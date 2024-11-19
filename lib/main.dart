@@ -36,8 +36,8 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: 'logIn',
       routes: {
-        'logIn': (BuildContext ctc) => logIn(),
-        'signIn': (BuildContext ctc) => signIn(),
+        'logIn': (BuildContext ctc) => const logIn(),
+        'signIn': (BuildContext ctc) => const signIn(),
       }
 //       home: signIn(),
     );
