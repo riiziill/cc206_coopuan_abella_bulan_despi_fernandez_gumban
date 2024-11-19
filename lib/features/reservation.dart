@@ -21,6 +21,7 @@ class _ReservationState extends State<Reservation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+                automaticallyImplyLeading: false,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {},

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/cart.dart';
 
 class ServiceDetailPage extends StatelessWidget {
   final String serviceName;
@@ -66,6 +67,14 @@ class ServiceDetailPage extends StatelessWidget {
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
         ),
+        actions: [
+          IconButton(
+              onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Cart()),
+                  ),
+              icon: const Icon(Icons.shopping_cart)),
+        ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -136,7 +145,7 @@ class ServiceDetailPage extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               itemCount: haircuts.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3, 
+                crossAxisCount: 3,
                 mainAxisSpacing: 16,
                 crossAxisSpacing: 16,
                 childAspectRatio: 2 / 2.5,
@@ -202,7 +211,7 @@ class ServiceDetailPage extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               itemCount: clothes.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3, 
+                crossAxisCount: 3,
                 mainAxisSpacing: 16,
                 crossAxisSpacing: 16,
                 childAspectRatio: 2 / 2.5,
@@ -218,7 +227,8 @@ class ServiceDetailPage extends StatelessWidget {
     );
   }
 
-  Widget _buildFoodAndDrinks(List<Map<String, String>> foods, List<Map<String, String>> drinks) {
+  Widget _buildFoodAndDrinks(
+      List<Map<String, String>> foods, List<Map<String, String>> drinks) {
     return Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -236,7 +246,7 @@ class ServiceDetailPage extends StatelessWidget {
               itemCount: foods.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
-                mainAxisSpacing: 16, 
+                mainAxisSpacing: 16,
                 crossAxisSpacing: 16,
                 childAspectRatio: 2 / 2.5,
               ),
@@ -308,8 +318,7 @@ class ItemTile extends StatelessWidget {
         ),
         const SizedBox(height: 4),
         ElevatedButton(
-          onPressed: () {
-          },
+          onPressed: () {},
           child: const Text('BUY'),
         ),
       ],

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/order_history.dart';
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/notification.dart';
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/profile.dart';
 import 'service_detail_page.dart';
 
 class homePage extends StatelessWidget {
@@ -26,12 +29,42 @@ class _HomePageState extends State<HomePage> {
   String searchQuery = '';
 
   List<Map<String, String>> services = [
-    {'name': 'KIOSK 1', 'hours': '9:00 A.M. - 4:00 P.M.', 'category': 'Fast Food', 'image': 'assets/kiosk1.png'},
-    {'name': 'KIOSK 2', 'hours': '8:00 A.M. - 5:00 P.M.', 'category': 'Fast Food', 'image': 'assets/kiosk2.png'},
-    {'name': 'KIOSK 3', 'hours': '9:00 A.M. - 4:00 P.M.', 'category': 'Fast Food', 'image': 'assets/kiosk3.png'},
-    {'name': 'PRINT', 'hours': '7:00 A.M. - 5:30 P.M.', 'category': 'Print', 'image': 'assets/print.png'},
-    {'name': 'SALON', 'hours': '8:00 A.M. - 5:00 P.M.', 'category': 'Salon', 'image': 'assets/salon.png'},
-    {'name': 'CLOTHES', 'hours': '10:00 A.M. - 6:00 P.M.', 'category': 'Mall', 'image': 'assets/clothes.png'},
+    {
+      'name': 'KIOSK 1',
+      'hours': '9:00 A.M. - 4:00 P.M.',
+      'category': 'Fast Food',
+      'image': 'assets/kiosk1.png'
+    },
+    {
+      'name': 'KIOSK 2',
+      'hours': '8:00 A.M. - 5:00 P.M.',
+      'category': 'Fast Food',
+      'image': 'assets/kiosk2.png'
+    },
+    {
+      'name': 'KIOSK 3',
+      'hours': '9:00 A.M. - 4:00 P.M.',
+      'category': 'Fast Food',
+      'image': 'assets/kiosk3.png'
+    },
+    {
+      'name': 'PRINT',
+      'hours': '7:00 A.M. - 5:30 P.M.',
+      'category': 'Print',
+      'image': 'assets/print.png'
+    },
+    {
+      'name': 'SALON',
+      'hours': '8:00 A.M. - 5:00 P.M.',
+      'category': 'Salon',
+      'image': 'assets/salon.png'
+    },
+    {
+      'name': 'CLOTHES',
+      'hours': '10:00 A.M. - 6:00 P.M.',
+      'category': 'Mall',
+      'image': 'assets/clothes.png'
+    },
   ];
 
   void _onItemTapped(int index) {
@@ -47,7 +80,8 @@ class _HomePageState extends State<HomePage> {
     _pageController.jumpToPage(index);
   }
 
-  void _onServiceTapped(BuildContext context, String serviceName, String imagePath, String serviceHours) {
+  void _onServiceTapped(BuildContext context, String serviceName,
+      String imagePath, String serviceHours) {
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -67,9 +101,17 @@ class _HomePageState extends State<HomePage> {
   }
 
   List<Map<String, String>> get filteredServices {
-    List<Map<String, String>> filtered = services.where((service) => selectedCategory == 'All' || service['category'] == selectedCategory).toList();
+    List<Map<String, String>> filtered = services
+        .where((service) =>
+            selectedCategory == 'All' ||
+            service['category'] == selectedCategory)
+        .toList();
     if (searchQuery.isNotEmpty) {
-      filtered = filtered.where((service) => service['name']!.toLowerCase().contains(searchQuery.toLowerCase())).toList();
+      filtered = filtered
+          .where((service) => service['name']!
+              .toLowerCase()
+              .contains(searchQuery.toLowerCase()))
+          .toList();
     }
     return filtered;
   }
@@ -84,6 +126,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text('DIGICOOP'),
       ),
       body: Column(
@@ -100,13 +143,18 @@ class _HomePageState extends State<HomePage> {
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8.0),
-                    borderSide: const BorderSide(color: Color(0xFF0A264A)), // Set outline color when enabled
+                    borderSide: const BorderSide(
+                        color: Color(
+                            0xFF0A264A)), // Set outline color when enabled
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8.0),
-                    borderSide: const BorderSide(color: Color(0xFF0A264A), width: 2.0), // Set outline color when focused
+                    borderSide: const BorderSide(
+                        color: Color(0xFF0A264A),
+                        width: 2.0), // Set outline color when focused
                   ),
-                  prefixIcon: const Icon(Icons.search, color: Color(0xFF0A264A)), // Change icon color as well
+                  prefixIcon: const Icon(Icons.search,
+                      color: Color(0xFF0A264A)), // Change icon color as well
                 ),
                 onChanged: (query) {
                   setState(() {
@@ -134,9 +182,9 @@ class _HomePageState extends State<HomePage> {
                   onServiceTapped: _onServiceTapped,
                   services: filteredServices,
                 ),
-                const Center(child: Text('Notifications Page')),
-                const Center(child: Text('Order History Page')),
-                const Center(child: Text('User Profile Page')),
+                NotificationsPage(),
+                OrderHistory(),
+                Profile(),
               ],
             ),
           ),
@@ -176,7 +224,8 @@ class ServicesPage extends StatelessWidget {
   final Function(BuildContext, String, String, String) onServiceTapped;
   final List<Map<String, String>> services;
 
-  const ServicesPage({super.key, required this.onServiceTapped, required this.services});
+  const ServicesPage(
+      {super.key, required this.onServiceTapped, required this.services});
 
   @override
   Widget build(BuildContext context) {
@@ -188,12 +237,15 @@ class ServicesPage extends StatelessWidget {
             ),
           )
         : ListView(
-            children: services.map((service) => ServiceTile(
-              imagePath: service['image']!,
-              serviceName: service['name']!,
-              serviceHours: service['hours']!,
-              onTap: (name, imagePath, hours) => onServiceTapped(context, name, imagePath, hours),
-            )).toList(),
+            children: services
+                .map((service) => ServiceTile(
+                      imagePath: service['image']!,
+                      serviceName: service['name']!,
+                      serviceHours: service['hours']!,
+                      onTap: (name, imagePath, hours) =>
+                          onServiceTapped(context, name, imagePath, hours),
+                    ))
+                .toList(),
           );
   }
 }
@@ -202,7 +254,10 @@ class CategoryIcons extends StatelessWidget {
   final Function(String) onCategoryTapped;
   final String selectedCategory;
 
-  const CategoryIcons({super.key, required this.onCategoryTapped, required this.selectedCategory});
+  const CategoryIcons(
+      {super.key,
+      required this.onCategoryTapped,
+      required this.selectedCategory});
 
   @override
   Widget build(BuildContext context) {

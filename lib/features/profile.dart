@@ -15,6 +15,7 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         elevation: 0,
         toolbarHeight: 20,
@@ -79,25 +80,6 @@ class _ProfileState extends State<Profile> {
             Divider(
                 thickness: 2, color: const Color.fromARGB(255, 60, 155, 193)),
             SizedBox(height: 24),
-            SizedBox(
-              width: 450,
-              child: OutlinedButton(
-                onPressed: () {
-                  Accesibility(context);
-                },
-                child: Text('Accessibility',
-                    style:
-                        TextStyle(color: const Color.fromARGB(255, 0, 0, 0))),
-                style: OutlinedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-                  side: BorderSide(
-                      color: const Color.fromARGB(255, 0, 0, 0), width: 0.5),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                ),
-              ),
-            ),
             SizedBox(height: 15),
             SizedBox(
               width: 450,
@@ -174,14 +156,13 @@ class _ProfileState extends State<Profile> {
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.pushNamed(context, 'logIn');
               },
               child: Text('Cancel'),
             ),
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop();
-                Navigator.pushReplacementNamed(context, '/login');
+                Navigator.pop(context);
               },
               child: Text('Logout'),
             ),
@@ -244,99 +225,4 @@ class _ProfileState extends State<Profile> {
       },
     );
   }
-
-  void Accesibility(BuildContext context) {
-    final List<Color> colors = [
-      Colors.red,
-      Colors.green,
-      Colors.blue,
-      Colors.yellow,
-      Colors.orange,
-    ];
-    Color selectedColor = colors[0];
-
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return Dialog(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          child: StatefulBuilder(
-            builder: (BuildContext context, StateSetter setState) {
-              return Container(
-                width: 300,
-                height: 200,
-                padding: EdgeInsets.all(20.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      'Select App Color',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    SizedBox(height: 20),
-                    DropdownButton<Color>(
-                      value: selectedColor,
-                      onChanged: (Color? newValue) {
-                        if (newValue != null) {
-                          setState(() {
-                            selectedColor = newValue;
-                          });
-                        }
-                      },
-                      items: colors.map<DropdownMenuItem<Color>>((Color color) {
-                        return DropdownMenuItem<Color>(
-                          value: color,
-                          child: Container(
-                            width: 70,
-                            height: 30,
-                            color: color,
-                            child: Center(
-                              child: Text(
-                                colorToString(color),
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ),
-                          ),
-                        );
-                      }).toList(),
-                    ),
-                    SizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: Text('Cancel'),
-                        ),
-                        TextButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: Text('Confirm'),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              );
-            },
-          ),
-        );
-      },
-    );
-  }
-
-  String colorToString(Color color) {
-    if (color == Colors.red) return 'Red';
-    if (color == Colors.green) return 'Green';
-    if (color == Colors.blue) return 'Blue';
-    if (color == Colors.yellow) return 'Yellow';
-    if (color == Colors.orange) return 'Orange';
-    return 'Unknown';
-  }
-
 }

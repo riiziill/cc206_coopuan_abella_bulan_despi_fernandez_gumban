@@ -21,9 +21,10 @@ class _CartState extends State<Cart> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
-          onPressed: () {},
+          onPressed: () => Navigator.pop(context),
         ),
         title: Text('Cart'),
       ),
@@ -84,7 +85,9 @@ class _CartState extends State<Cart> {
             SizedBox(height: 20),
             Center(
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, 'receipt');
+                },
                 child: Text('CONFIRM ORDER'),
               ),
             ),
@@ -125,8 +128,8 @@ class _CartState extends State<Cart> {
     );
   }
 
-  Widget _buildOrderItem(
-      String name, int count, int price, VoidCallback onAdd, VoidCallback onRemove) {
+  Widget _buildOrderItem(String name, int count, int price, VoidCallback onAdd,
+      VoidCallback onRemove) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [

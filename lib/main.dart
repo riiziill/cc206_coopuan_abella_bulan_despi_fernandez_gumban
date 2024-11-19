@@ -4,6 +4,8 @@ import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/featu
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/log_in.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/cart.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/receipt.dart';
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/settings.dart';
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/profile.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -27,9 +29,11 @@ class MyApp extends StatelessWidget {
           'logIn': (BuildContext ctc) => const logIn(),
           'signIn': (BuildContext ctc) => const signIn(),
           'homePage': (BuildContext ctc) => const HomePage(),
-          'reservation': (BuildContext ctc) => Reservation(),
-          'cart': (BuildContext ctc) => Cart(),
-          'receipt': (BuildContext ctc) => ReceiptScreen(),
+          'reservation': (BuildContext ctc) => const Reservation(),
+          'cart': (BuildContext ctc) => const Cart(),
+          'receipt': (BuildContext ctc) => const Receipt(),
+          'setting': (BuildContext ctc) => const settings(),
+          'profile': (BuildContext ctc) => Profile(),
         });
   }
 }

@@ -14,6 +14,7 @@ class _settingsState extends State<settings> {
   TextEditingController usernameField = TextEditingController();
   TextEditingController emailField = TextEditingController();
   TextEditingController idField = TextEditingController();
+  TextEditingController BioField = TextEditingController();
   TextEditingController password1Field = TextEditingController();
   TextEditingController password2Field = TextEditingController();
 
@@ -22,7 +23,13 @@ class _settingsState extends State<settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pushNamed(context, 'homePage'),
+        ),
+        backgroundColor: Colors.white,
+      ),
       body: Center(
         child: SingleChildScrollView(
           child: Form(
@@ -62,16 +69,19 @@ class _settingsState extends State<settings> {
                   child: TextFormField(
                     controller: emailField,
                     readOnly: true,
+                    enabled: false,
                     decoration: const InputDecoration(
                       labelText: 'WVSU EMAIL',
-                      hintText: 'Example: abc@wvsu.edu.ph',
                       labelStyle: TextStyle(fontSize: 10.0),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                        borderSide: BorderSide(color: Colors.black, width: 1),
+                        borderSide: BorderSide(
+                            color: Colors.grey,
+                            width: 1), // Change border color to gray
                       ),
                       filled: true,
-                      fillColor: Colors.transparent,
+                      fillColor: Color.fromARGB(
+                          255, 211, 211, 211), // Light gray color
                     ),
                   ),
                 ),
@@ -80,16 +90,20 @@ class _settingsState extends State<settings> {
                   width: 300,
                   child: TextFormField(
                     controller: idField,
+                    enabled: false,
+                    readOnly: true,
                     decoration: const InputDecoration(
                       labelText: 'WVSU ID',
-                      hintText: 'Example: 2022M0000',
                       labelStyle: TextStyle(fontSize: 10.0),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                        borderSide: BorderSide(color: Colors.black, width: 1),
+                        borderSide: BorderSide(
+                            color: Colors.grey,
+                            width: 1), // Change border color to gray
                       ),
                       filled: true,
-                      fillColor: Colors.transparent,
+                      fillColor: Color.fromARGB(
+                          255, 211, 211, 211), // Light gray color
                     ),
                   ),
                 ),
@@ -97,7 +111,7 @@ class _settingsState extends State<settings> {
                 SizedBox(
                   width: 300,
                   child: TextFormField(
-                    controller: idField,
+                    controller: BioField,
                     decoration: const InputDecoration(
                       labelText: 'BIO',
                       labelStyle: TextStyle(fontSize: 10.0),
@@ -236,7 +250,7 @@ class _settingsState extends State<settings> {
                                     ),
                                   ),
                                   onPressed: () {
-                                    Navigator.pushNamed(context, 'profile');
+                                    Navigator.pop(context);
                                   },
                                   child: const Text('DONE'),
                                   // Navigator.pushNamed(context, 'logIn');

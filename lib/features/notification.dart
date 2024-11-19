@@ -29,6 +29,7 @@ class NotificationsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('Notifications'),
       ),
       body: ListView.builder(
@@ -43,6 +44,25 @@ class NotificationsPage extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold)),
               subtitle: Text(notifications[index]['content']!),
               trailing: Icon(Icons.chevron_right),
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text(notifications[index]['title']!),
+                      content: Text(notifications[index]['content']!),
+                      actions: <Widget>[
+                        TextButton(
+                          child: Text('Close'),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
             ),
           );
         },

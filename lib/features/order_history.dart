@@ -57,6 +57,7 @@ class OrderHistory extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('Order History'),
       ),
       body: ListView.builder(
@@ -75,7 +76,6 @@ class OrderHistory extends StatelessWidget {
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               subtitle: Text(order['content']!),
-              trailing: Icon(Icons.chevron_right),
             ),
           );
         },
