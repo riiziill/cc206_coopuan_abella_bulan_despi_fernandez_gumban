@@ -1,3 +1,4 @@
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/auth_service.dart';
 import 'package:flutter/material.dart';
 
 class signIn extends StatefulWidget {
@@ -213,6 +214,8 @@ class _signInState extends State<signIn> {
                     ),
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
+                        register();
+
                         showDialog(
                           context: context,
                           builder: (BuildContext context) {
@@ -323,5 +326,23 @@ class _signInState extends State<signIn> {
         ),
       ),
     );
+  }
+
+  void register() async {
+    final _authService = AuthService();
+
+    try {
+      await _authService.signUpWithEmailPassword(
+        emailField.text,
+        password1Field.text,
+      );
+    } catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(e.toString()),
+        ),
+      );
+    }
   }
 }

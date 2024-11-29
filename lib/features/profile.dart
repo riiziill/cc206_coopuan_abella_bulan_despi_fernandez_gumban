@@ -1,3 +1,4 @@
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/auth_service.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatefulWidget {
@@ -156,13 +157,15 @@ class _ProfileState extends State<Profile> {
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.pushNamed(context, 'logIn');
+                Navigator.pop(context);
               },
               child: Text('Cancel'),
             ),
             TextButton(
               onPressed: () {
-                Navigator.pop(context);
+                final _authService = AuthService();
+                _authService.signOut();
+                Navigator.pushNamed(context, 'logIn');
               },
               child: Text('Logout'),
             ),

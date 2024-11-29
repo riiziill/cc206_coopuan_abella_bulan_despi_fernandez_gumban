@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/order_history.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/notification.dart';
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/order_history.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/profile.dart';
-import 'service_detail_page.dart';
+import 'package:flutter/material.dart';
 
 class homePage extends StatelessWidget {
   const homePage({super.key});
@@ -80,32 +79,48 @@ class _HomePageState extends State<HomePage> {
     _pageController.jumpToPage(index);
   }
 
-  void _onServiceTapped(BuildContext context, String serviceName,
-      String imagePath, String serviceHours) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => ServiceDetailPage(
-          serviceName: serviceName,
-          imagePath: imagePath,
-          serviceHours: serviceHours,
-        ),
-      ),
-    );
+  void _onServiceTapped(BuildContext context, String serviceName) {
+    String page;
+
+    switch (serviceName) {
+      case 'KIOSK 1':
+        page = 'kiosk1';
+        break;
+      case 'KIOSK 2':
+        page = '';
+        break;
+      case 'KIOSK 3':
+        page = '';
+        break;
+      case 'PRINT':
+        page = '';
+        break;
+      case 'SALON':
+        page = '';
+        break;
+      case 'CLOTHES':
+        page = '';
+        break;
+      default:
+        throw Exception('Unknown service');
+    }
+
+    Navigator.pushNamed(context, page);
   }
 
   void _onCategoryTapped(String categoryName) {
     setState(() {
-      selectedCategory = categoryName;
+      if (selectedCategory == categoryName) {
+        selectedCategory = 'All'; // Reset to default state
+      } else {
+        selectedCategory = categoryName; // Set the new category
+      }
     });
   }
 
   List<Map<String, String>> get filteredServices {
-    List<Map<String, String>> filtered = services
-        .where((service) =>
-            selectedCategory == 'All' ||
-            service['category'] == selectedCategory)
-        .toList();
+    List<Map<String, String>> filtered = services;
+
     if (searchQuery.isNotEmpty) {
       filtered = filtered
           .where((service) => service['name']!
@@ -113,6 +128,13 @@ class _HomePageState extends State<HomePage> {
               .contains(searchQuery.toLowerCase()))
           .toList();
     }
+
+    if (searchQuery.isEmpty && selectedCategory != 'All') {
+      filtered = filtered
+          .where((service) => service['category'] == selectedCategory)
+          .toList();
+    }
+
     return filtered;
   }
 
@@ -143,18 +165,14 @@ class _HomePageState extends State<HomePage> {
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8.0),
-                    borderSide: const BorderSide(
-                        color: Color(
-                            0xFF0A264A)), // Set outline color when enabled
+                    borderSide: const BorderSide(color: Color(0xFF0A264A)),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8.0),
-                    borderSide: const BorderSide(
-                        color: Color(0xFF0A264A),
-                        width: 2.0), // Set outline color when focused
+                    borderSide: const BorderSide(color: Color(0xFF0A264A)),
                   ),
-                  prefixIcon: const Icon(Icons.search,
-                      color: Color(0xFF0A264A)), // Change icon color as well
+                  prefixIcon:
+                      const Icon(Icons.search, color: Color(0xFF0A264A)),
                 ),
                 onChanged: (query) {
                   setState(() {
@@ -220,44 +238,15 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class ServicesPage extends StatelessWidget {
-  final Function(BuildContext, String, String, String) onServiceTapped;
-  final List<Map<String, String>> services;
-
-  const ServicesPage(
-      {super.key, required this.onServiceTapped, required this.services});
-
-  @override
-  Widget build(BuildContext context) {
-    return services.isEmpty
-        ? const Center(
-            child: Text(
-              'No services available in this category.',
-              style: TextStyle(fontSize: 18, color: Colors.black54),
-            ),
-          )
-        : ListView(
-            children: services
-                .map((service) => ServiceTile(
-                      imagePath: service['image']!,
-                      serviceName: service['name']!,
-                      serviceHours: service['hours']!,
-                      onTap: (name, imagePath, hours) =>
-                          onServiceTapped(context, name, imagePath, hours),
-                    ))
-                .toList(),
-          );
-  }
-}
-
 class CategoryIcons extends StatelessWidget {
   final Function(String) onCategoryTapped;
   final String selectedCategory;
 
-  const CategoryIcons(
-      {super.key,
-      required this.onCategoryTapped,
-      required this.selectedCategory});
+  const CategoryIcons({
+    super.key,
+    required this.onCategoryTapped,
+    required this.selectedCategory,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -266,97 +255,105 @@ class CategoryIcons extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          _buildAnimatedIcon(Icons.fastfood, 'Fast Food'),
-          _buildAnimatedIcon(Icons.local_cafe, 'Cafe'),
-          _buildAnimatedIcon(Icons.content_cut, 'Salon'),
-          _buildAnimatedIcon(Icons.print, 'Print'),
-          _buildAnimatedIcon(Icons.local_mall, 'Mall'),
-          _buildAnimatedIcon(Icons.local_offer, 'Offers'),
+          _buildIcon(Icons.fastfood, 'Fast Food'),
+          _buildIcon(Icons.local_cafe, 'Cafe'),
+          _buildIcon(Icons.content_cut, 'Salon'),
+          _buildIcon(Icons.print, 'Print'),
+          _buildIcon(Icons.local_mall, 'Mall'),
         ],
       ),
     );
   }
 
-  Widget _buildAnimatedIcon(IconData icon, String category) {
+  Widget _buildIcon(IconData icon, String category) {
     final isSelected = selectedCategory == category;
     return GestureDetector(
       onTap: () => onCategoryTapped(category),
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 300),
-        padding: const EdgeInsets.all(8.0),
-        decoration: BoxDecoration(
-          color: isSelected ? Colors.grey[300] : Colors.transparent,
-          borderRadius: BorderRadius.circular(8.0),
-        ),
-        child: Icon(
-          icon,
-          color: isSelected ? Colors.white : const Color(0xFF0A264A),
-        ),
+      child: Icon(
+        icon,
+        color: isSelected ? Colors.blue : Colors.black,
+        size: 32,
       ),
     );
   }
 }
 
-class ServiceTile extends StatelessWidget {
-  final String imagePath;
-  final String serviceName;
-  final String serviceHours;
-  final Function(String, String, String) onTap;
+class ServicesPage extends StatelessWidget {
+  final Function(BuildContext, String) onServiceTapped;
+  final List<Map<String, String>> services;
 
-  const ServiceTile({
+  const ServicesPage({
     super.key,
-    required this.imagePath,
-    required this.serviceName,
-    required this.serviceHours,
-    required this.onTap,
+    required this.onServiceTapped,
+    required this.services,
   });
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => onTap(serviceName, imagePath, serviceHours),
-      child: Card(
-        margin: const EdgeInsets.all(8.0),
-        child: Container(
-          height: 150,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(imagePath),
-              fit: BoxFit.cover,
-              colorFilter: ColorFilter.mode(
-                Colors.black.withOpacity(0.3),
-                BlendMode.darken,
+    if (services.isEmpty) {
+      return const Center(
+        child: Text(
+          'No matching services found.',
+          style: TextStyle(fontSize: 16, color: Colors.grey),
+        ),
+      );
+    }
+
+    return ListView(
+      children: services.map((service) {
+        return GestureDetector(
+          onTap: () => onServiceTapped(context, service['name']!),
+          child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            height: 150,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12.0),
+              image: DecorationImage(
+                image: AssetImage(service['image']!),
+                fit: BoxFit.cover,
               ),
             ),
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(
-                  serviceName,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12.0),
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.black.withOpacity(0.7),
+                    Colors.transparent,
+                  ],
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
                 ),
-                const SizedBox(height: 4),
-                Text(
-                  serviceHours,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 14,
-                  ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      service['name']!,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      service['hours']!,
+                      style: const TextStyle(
+                        color: Colors.white70,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
-        ),
-      ),
+        );
+      }).toList(),
     );
   }
 }
