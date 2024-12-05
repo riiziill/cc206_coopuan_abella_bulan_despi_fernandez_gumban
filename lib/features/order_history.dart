@@ -23,8 +23,12 @@ class OrderHistory extends StatelessWidget {
       orders.add({
         'date': formattedDate,
         'order': orderData['order'],
+        'timestamp': dateTime,
       });
     }
+
+    orders.sort((a, b) => b['timestamp'].compareTo(a['timestamp']));
+
     return orders;
   }
 
@@ -69,10 +73,9 @@ class OrderHistory extends StatelessWidget {
                           'Order placed on: ${order['date']}',
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
-                        subtitle: Text(order['order']!.substring(0, 30) +
-                            '...'), // Show part of the order details
+                        subtitle:
+                            Text(order['order']!.substring(0, 30) + '...'),
                         onTap: () {
-                          // Navigate to order detail screen
                           Navigator.push(
                             context,
                             MaterialPageRoute(

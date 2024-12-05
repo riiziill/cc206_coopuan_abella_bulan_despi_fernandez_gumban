@@ -1,7 +1,7 @@
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/item.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/cart_page.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/item_tile.dart';
-import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/kiosk1_item_page.dart';
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/item_page.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/tab_bar.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/service_detail_page.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/item_list.dart';
@@ -86,11 +86,6 @@ class _Kiosk2State extends State<Kiosk2> with SingleTickerProviderStateMixin {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Divider(
-                  indent: 25,
-                  endIndent: 25,
-                  color: Colors.grey,
-                ),
                 Padding(
                   padding: EdgeInsets.all(25.0),
                   child: Column(

@@ -7,19 +7,18 @@ class SalonServicePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: true, // Back button visible
+        automaticallyImplyLeading: true,
         title: const Text(
           'Salon Services',
-          style: TextStyle(color: Colors.white), // White text for the title
+          style: TextStyle(color: Colors.white),
         ),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back,
-              color: Colors.white), // White back arrow
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Navigator.of(context).pop(); // Navigate back
+            Navigator.of(context).pop();
           },
         ),
-        backgroundColor: const Color(0xFF0A264A), // AppBar background color
+        backgroundColor: const Color(0xFF0A264A),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -78,9 +77,9 @@ class SalonServicePage extends StatelessWidget {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: 8),
-              _buildHaircutDesign('assets/haircut_design1.jpg', 'Short Fade'),
-              _buildHaircutDesign('assets/haircut_design2.jpg', 'Long Layered'),
-              _buildHaircutDesign('assets/haircut_design3.jpg', 'Buzz Cut'),
+              _buildHaircutDesign('assets/haircut.png', 'Short Fade'),
+              _buildHaircutDesign('assets/haircut.png', 'Long Layered'),
+              _buildHaircutDesign('assets/haircut.png', 'Buzz Cut'),
               const SizedBox(height: 20),
               const Divider(color: Colors.grey, thickness: 1),
               const SizedBox(height: 20),

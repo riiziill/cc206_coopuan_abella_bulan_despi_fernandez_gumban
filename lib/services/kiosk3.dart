@@ -1,7 +1,7 @@
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/item.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/cart_page.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/item_tile.dart';
-import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/kiosk1_item_page.dart';
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/item_page.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/tab_bar.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/service_detail_page.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/item_list.dart';
@@ -86,19 +86,14 @@ class _Kiosk3State extends State<Kiosk3> with SingleTickerProviderStateMixin {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Divider(
-                  indent: 25,
-                  endIndent: 25,
-                  color: Colors.grey,
-                ),
                 Padding(
                   padding: EdgeInsets.all(25.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Kiosk 3 offers a wide variety of freshly baked goods, "
-                        "including bread, pastries, and cakes. A haven for dessert lovers and breakfast enthusiasts.",
+                        "Kiosk 3 serves comforting Filipino stews like Batchoy and Bulalo, alongside grilled favorites like Chicken Inasal and savory"
+                        "dishes such as Pininyahang Manok and Afritada. Perfect for a hearty, flavorful meal.",
                         style: TextStyle(fontSize: 16),
                       ),
                       SizedBox(height: 10),

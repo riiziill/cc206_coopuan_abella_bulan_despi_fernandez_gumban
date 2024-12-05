@@ -69,7 +69,7 @@ class _logInState extends State<logIn> {
                       if (!RegExp("\b*@wvsu\.edu\.ph\$").hasMatch(value)) {
                         return 'Please enter a valid WVSU email';
                       }
-                      return null; // No error
+                      return null;
                     },
                   ),
                 ),
@@ -126,46 +126,8 @@ class _logInState extends State<logIn> {
                       ),
                     ),
                     onPressed: () {
-                      login();
                       if (formKey.currentState!.validate()) {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialog(
-                              title: const Row(
-                                children: [
-                                  Icon(Icons.check_circle, color: Colors.green),
-                                  SizedBox(width: 10),
-                                  Text(
-                                    'Success',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              content: const Text(
-                                'You have logged in successfully!',
-                                style: TextStyle(fontSize: 14),
-                              ),
-                              actions: [
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color(0xFF0A0170),
-                                    foregroundColor: Colors.white,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20.0),
-                                    ),
-                                  ),
-                                  onPressed: () =>
-                                      Navigator.pushNamed(context, 'homePage'),
-                                  child: const Text('CONTINUE'),
-                                ),
-                              ],
-                            );
-                          },
-                        );
+                        login();
                       } else {
                         showDialog(
                           context: context,
@@ -248,12 +210,83 @@ class _logInState extends State<logIn> {
         emailField.text,
         password1Field.text,
       );
+
+      if (true) {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: const Row(
+                children: [
+                  Icon(Icons.check_circle, color: Colors.green),
+                  SizedBox(width: 10),
+                  Text(
+                    'Success',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                ],
+              ),
+              content: const Text(
+                'You have logged in successfully!',
+                style: TextStyle(fontSize: 14),
+              ),
+              actions: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF0A0170),
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                  ),
+                  onPressed: () => Navigator.pushNamed(context, 'homePage'),
+                  child: const Text('CONTINUE'),
+                ),
+              ],
+            );
+          },
+        );
+      }
     } catch (e) {
       showDialog(
         context: context,
-        builder: (context) => AlertDialog(
-          title: Text(e.toString()),
-        ),
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Row(
+              children: [
+                Icon(Icons.warning, color: Colors.red),
+                SizedBox(width: 10),
+                Text(
+                  'Errors Found',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                )
+              ],
+            ),
+            content: Text(
+              'One of the required fields is empty or contains invalid data. Please check your input. ${e.toString()}',
+              style: TextStyle(fontSize: 14),
+            ),
+            actions: [
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF0A0170),
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                ),
+                onPressed: () => Navigator.pop(context),
+                child: const Text('OKAY'),
+              ),
+            ],
+          );
+        },
       );
     }
   }

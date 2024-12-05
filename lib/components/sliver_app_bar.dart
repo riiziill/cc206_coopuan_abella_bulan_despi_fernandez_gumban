@@ -4,14 +4,14 @@ class MySliverAppBar extends StatelessWidget {
   final Widget child;
   final Widget categories;
   final Widget serviceName;
-  final Widget redirectPage; // New property for the dynamic page
+  final Widget redirectPage;
 
   const MySliverAppBar({
     super.key,
     required this.child,
     required this.categories,
     required this.serviceName,
-    required this.redirectPage, // Require the redirect page
+    required this.redirectPage,
   });
 
   @override
@@ -27,7 +27,7 @@ class MySliverAppBar extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => redirectPage, // Use the dynamic page
+                builder: (context) => redirectPage,
               ),
             );
           },

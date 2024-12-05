@@ -18,7 +18,7 @@ class Item<T> implements DisplayableItem {
   @override
   final double price;
 
-  final T category; // Generic type for category
+  final T category;
   final List<Addon> availableAddons;
 
   Item({

@@ -13,7 +13,7 @@ class _ClothesShopPageState extends State<ClothesShopPage> {
     'All',
     'T-Shirts',
     'Jeans',
-    'Jackets',
+    'Dresses',
     'Sweaters'
   ];
 
@@ -21,7 +21,7 @@ class _ClothesShopPageState extends State<ClothesShopPage> {
     {
       'name': 'T-Shirt',
       'price': '350',
-      'image': 'assets/clothes/tshirt.jpg',
+      'image': 'assets/shirt.png',
       'brand': 'Brand A',
       'description': 'A comfortable cotton t-shirt for everyday wear.',
       'category': 'T-Shirts',
@@ -29,23 +29,24 @@ class _ClothesShopPageState extends State<ClothesShopPage> {
     {
       'name': 'Jeans',
       'price': '800',
-      'image': 'assets/clothes/jeans.jpg',
+      'image': 'assets/pants.png',
       'brand': 'Brand B',
       'description': 'Stylish and durable jeans with a perfect fit.',
       'category': 'Jeans',
     },
     {
-      'name': 'Jacket',
+      'name': 'Dress',
       'price': '1200',
-      'image': 'assets/clothes/jacket.jpg',
+      'image': 'assets/dress.png',
       'brand': 'Brand C',
-      'description': 'A warm and cozy jacket for chilly days.',
-      'category': 'Jackets',
+      'description':
+          'A stylish and comfortable dress perfect for both casual and formal occasions.',
+      'category': 'Dresses',
     },
     {
       'name': 'Sweater',
       'price': '950',
-      'image': 'assets/clothes/sweater.jpg',
+      'image': 'assets/sweater.png',
       'brand': 'Brand D',
       'description': 'Soft and snug sweater, perfect for winter.',
       'category': 'Sweaters',
@@ -53,7 +54,7 @@ class _ClothesShopPageState extends State<ClothesShopPage> {
     {
       'name': 'Graphic T-Shirt',
       'price': '400',
-      'image': 'assets/clothes/graphic_tshirt.jpg',
+      'image': 'assets/shirt.png',
       'brand': 'Brand E',
       'description': 'A trendy graphic t-shirt with unique design.',
       'category': 'T-Shirts',

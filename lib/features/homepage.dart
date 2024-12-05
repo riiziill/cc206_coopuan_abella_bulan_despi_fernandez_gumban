@@ -111,9 +111,9 @@ class _HomePageState extends State<HomePage> {
   void _onCategoryTapped(String categoryName) {
     setState(() {
       if (selectedCategory == categoryName) {
-        selectedCategory = 'All'; // Reset to default state
+        selectedCategory = 'All';
       } else {
-        selectedCategory = categoryName; // Set the new category
+        selectedCategory = categoryName;
       }
     });
   }

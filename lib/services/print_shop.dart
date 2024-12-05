@@ -7,20 +7,18 @@ class PrintServicePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: true, // Make sure the back button is visible
+        automaticallyImplyLeading: true,
         title: const Text(
           'Printing Services',
-          style:
-              TextStyle(color: Colors.white), // White text color for the title
+          style: TextStyle(color: Colors.white),
         ),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back,
-              color: Colors.white), // White back arrow
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Navigator.of(context).pop(); // Navigate back
+            Navigator.of(context).pop();
           },
         ),
-        backgroundColor: const Color(0xFF0A264A), // AppBar background color
+        backgroundColor: const Color(0xFF0A264A),
       ),
       body: SingleChildScrollView(
         child: Padding(
