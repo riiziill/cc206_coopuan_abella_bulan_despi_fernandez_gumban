@@ -1,8 +1,8 @@
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/item.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/cart_page.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/item_tile.dart';
-import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/tab_bar.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/kiosk1_item_page.dart';
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/tab_bar.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/service_detail_page.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/item_list.dart';
 import 'package:flutter/foundation.dart';
@@ -76,10 +76,12 @@ class _Kiosk3State extends State<Kiosk3> with SingleTickerProviderStateMixin {
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           MySliverAppBar(
             redirectPage: CartPage(),
-            serviceName: Text('Kiosk 1'),
+            serviceName: Text('Kiosk 3'),
             categories: Container(
               child: TabBar(
-                  controller: _tabController, tabs: _buildCategoryTabs()),
+                controller: _tabController,
+                tabs: _buildCategoryTabs(),
+              ),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -94,12 +96,33 @@ class _Kiosk3State extends State<Kiosk3> with SingleTickerProviderStateMixin {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Kiosk description"),
+                      Text(
+                        "Kiosk 3 offers a wide variety of freshly baked goods, "
+                        "including bread, pastries, and cakes. A haven for dessert lovers and breakfast enthusiasts.",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      SizedBox(height: 10),
                       Row(
                         children: [
-                          Text("idkidk"),
+                          Icon(Icons.access_time, color: Colors.grey, size: 16),
+                          SizedBox(width: 5),
+                          Text(
+                            "Open: 7:00 AM - 7:00 PM",
+                            style: TextStyle(fontSize: 14),
+                          ),
                         ],
-                      )
+                      ),
+                      SizedBox(height: 5),
+                      Row(
+                        children: [
+                          Icon(Icons.location_on, color: Colors.grey, size: 16),
+                          SizedBox(width: 5),
+                          Text(
+                            "Location: Bakery Corner, Level 2",
+                            style: TextStyle(fontSize: 14),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ),
@@ -108,9 +131,9 @@ class _Kiosk3State extends State<Kiosk3> with SingleTickerProviderStateMixin {
           ),
         ],
         body: Consumer<ServiceItems>(
-          builder: (context, kiosk1items, child) => TabBarView(
+          builder: (context, kiosk3items, child) => TabBarView(
             controller: _tabController,
-            children: getItemInThisCategory(kiosk1items.menu),
+            children: getItemInThisCategory(kiosk3items.menu),
           ),
         ),
       ),

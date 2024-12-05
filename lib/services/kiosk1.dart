@@ -60,7 +60,7 @@ class _Kiosk1State extends State<Kiosk1> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 4, vsync: this);
   }
 
   @override
@@ -79,7 +79,9 @@ class _Kiosk1State extends State<Kiosk1> with SingleTickerProviderStateMixin {
             serviceName: Text('Kiosk 1'),
             categories: Container(
               child: TabBar(
-                  controller: _tabController, tabs: _buildCategoryTabs()),
+                controller: _tabController,
+                tabs: _buildCategoryTabs(),
+              ),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -94,12 +96,33 @@ class _Kiosk1State extends State<Kiosk1> with SingleTickerProviderStateMixin {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Kiosk description"),
+                      Text(
+                        "Kiosk 1 is your one-stop destination for authentic Filipino dishes. "
+                        "Enjoy classic flavors made with the freshest ingredients, served with love and care.",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      SizedBox(height: 10),
                       Row(
                         children: [
-                          Text("idkidk"),
+                          Icon(Icons.access_time, color: Colors.grey, size: 16),
+                          SizedBox(width: 5),
+                          Text(
+                            "Open: 9:00 AM - 9:00 PM",
+                            style: TextStyle(fontSize: 14),
+                          ),
                         ],
-                      )
+                      ),
+                      SizedBox(height: 5),
+                      Row(
+                        children: [
+                          Icon(Icons.location_on, color: Colors.grey, size: 16),
+                          SizedBox(width: 5),
+                          Text(
+                            "Location: Food Court, Level 2",
+                            style: TextStyle(fontSize: 14),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ),

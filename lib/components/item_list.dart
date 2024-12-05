@@ -8,273 +8,362 @@ import 'package:intl/intl.dart';
 
 class ServiceItems extends ChangeNotifier {
   final List<Item> _menu = [
-    //Kiosk 1
-    //Category 1
     Item(
       serviceName: "Kiosk 1",
-      name: "Borgor",
-      description: "Cheez",
+      name: "Pork Adobo",
+      description:
+          "A savory and tangy pork stew marinated in soy sauce, vinegar, garlic, and spices.",
       imagePath: 'assets/kiosk1.png',
-      price: 99,
-      category: Kiosk1ItemCategory.category1,
+      price: 150,
+      category: Kiosk1ItemCategory.main,
       availableAddons: [
-        Addon(name: 'piqls', price: 10000),
-        Addon(name: 'toms', price: 2),
-        Addon(name: 'kets', price: 3),
+        Addon(name: 'Rice', price: 20),
+        Addon(name: 'Extra Pork', price: 50),
       ],
     ),
-
     Item(
       serviceName: "Kiosk 1",
-      name: "Borgor2",
-      description: "Cheez",
+      name: "Sinigang",
+      description:
+          "A sour tamarind-based soup with tender pork and assorted vegetables.",
       imagePath: 'assets/kiosk1.png',
-      price: 99,
-      category: Kiosk1ItemCategory.category1,
+      price: 180,
+      category: Kiosk1ItemCategory.soup,
       availableAddons: [
-        Addon(name: 'piqls', price: 10000),
-        Addon(name: 'toms', price: 2),
-        Addon(name: 'kets', price: 3),
+        Addon(name: 'Rice', price: 20),
+        Addon(name: 'Extra Pork', price: 50),
       ],
     ),
-
     Item(
       serviceName: "Kiosk 1",
-      name: "Borgor3",
-      description: "Cheez",
+      name: "Pancit Guisado",
+      description:
+          "Stir-fried noodles with a variety of vegetables, shrimp, pork, and chicken.",
       imagePath: 'assets/kiosk1.png',
-      price: 99,
-      category: Kiosk1ItemCategory.category1,
+      price: 120,
+      category: Kiosk1ItemCategory.noodles,
       availableAddons: [
-        Addon(name: 'piqls', price: 10000),
-        Addon(name: 'toms', price: 2),
-        Addon(name: 'kets', price: 3),
+        Addon(name: 'Extra Shrimp', price: 40),
+        Addon(name: 'Extra Pork', price: 30),
       ],
     ),
-
-    //Category 2
-
     Item(
       serviceName: "Kiosk 1",
-      name: "Cheez",
-      description: "Cheez",
+      name: "Karekare",
+      description:
+          "A rich and creamy peanut-based stew with oxtail, tripe, and vegetables.",
       imagePath: 'assets/kiosk1.png',
-      price: 99,
-      category: Kiosk1ItemCategory.category2,
+      price: 250,
+      category: Kiosk1ItemCategory.main,
       availableAddons: [
-        Addon(name: 'piqls', price: 10000),
-        Addon(name: 'toms', price: 2),
-        Addon(name: 'kets', price: 3),
+        Addon(name: 'Rice', price: 20),
+        Addon(name: 'Extra Oxtail', price: 80),
       ],
     ),
-
     Item(
       serviceName: "Kiosk 1",
-      name: "Cheez",
-      description: "Cheez",
+      name: "Lumpia Shanghai",
+      description:
+          "Crispy spring rolls filled with seasoned ground pork and vegetables.",
       imagePath: 'assets/kiosk1.png',
-      price: 99,
-      category: Kiosk1ItemCategory.category2,
+      price: 90,
+      category: Kiosk1ItemCategory.appetizer,
       availableAddons: [
-        Addon(name: 'piqls', price: 10000),
-        Addon(name: 'toms', price: 2),
-        Addon(name: 'kets', price: 3),
+        Addon(name: 'Extra Lumpia', price: 30),
       ],
     ),
-
-    //Category 3
-
     Item(
       serviceName: "Kiosk 1",
-      name: "Piqls",
-      description: "Cheez",
+      name: "Bicol Express",
+      description:
+          "A spicy and creamy dish made with pork and shrimp cooked in coconut milk and chili.",
       imagePath: 'assets/kiosk1.png',
-      price: 99,
-      category: Kiosk1ItemCategory.category3,
+      price: 160,
+      category: Kiosk1ItemCategory.main,
       availableAddons: [
-        Addon(name: 'piqls', price: 10000),
-        Addon(name: 'toms', price: 2),
-        Addon(name: 'kets', price: 3),
+        Addon(name: 'Rice', price: 20),
+        Addon(name: 'Extra Pork', price: 50),
       ],
     ),
-
-    //Kiosk 2
-    //Category 1
+    Item(
+      serviceName: "Kiosk 1",
+      name: "Tocino",
+      description:
+          "Sweet, cured pork served with a side of garlic rice and fried egg.",
+      imagePath: 'assets/kiosk1.png',
+      price: 130,
+      category: Kiosk1ItemCategory.main,
+      availableAddons: [
+        Addon(name: 'Rice', price: 20),
+        Addon(name: 'Fried Egg', price: 20),
+      ],
+    ),
+    Item(
+      serviceName: "Kiosk 1",
+      name: "Pinakbet",
+      description:
+          "A vegetable medley of bitter melon, eggplant, and squash cooked with shrimp paste.",
+      imagePath: 'assets/kiosk1.png',
+      price: 120,
+      category: Kiosk1ItemCategory.main,
+      availableAddons: [
+        Addon(name: 'Rice', price: 20),
+        Addon(name: 'Extra Shrimp', price: 40),
+      ],
+    ),
+    Item(
+      serviceName: "Kiosk 1",
+      name: "Caldereta",
+      description:
+          "A rich tomato-based beef stew with potatoes, carrots, and bell peppers.",
+      imagePath: 'assets/kiosk1.png',
+      price: 200,
+      category: Kiosk1ItemCategory.main,
+      availableAddons: [
+        Addon(name: 'Rice', price: 20),
+        Addon(name: 'Extra Beef', price: 60),
+      ],
+    ),
+    Item(
+      serviceName: "Kiosk 1",
+      name: "Bangus",
+      description:
+          "Grilled milkfish served with garlic rice and dipping sauce.",
+      imagePath: 'assets/kiosk1.png',
+      price: 150,
+      category: Kiosk1ItemCategory.main,
+      availableAddons: [
+        Addon(name: 'Rice', price: 20),
+        Addon(name: 'Extra Bangus', price: 60),
+      ],
+    ),
     Item(
       serviceName: "Kiosk 2",
-      name: "Borgor",
-      description: "Cheez",
-      imagePath: 'assets/kiosk1.png',
-      price: 99,
-      category: Kiosk2ItemCategory.kiosk2CategoryX,
+      name: "Bistek",
+      description:
+          "Filipino beef steak marinated in soy sauce and calamansi, served with onions.",
+      imagePath: 'assets/kiosk2.png',
+      price: 170,
+      category: Kiosk2ItemCategory.main,
       availableAddons: [
-        Addon(name: 'piqls', price: 10000),
-        Addon(name: 'toms', price: 2),
-        Addon(name: 'kets', price: 3),
+        Addon(name: 'Rice', price: 20),
+        Addon(name: 'Extra Beef', price: 50),
       ],
     ),
-
     Item(
       serviceName: "Kiosk 2",
-      name: "Borgor2",
-      description: "Cheez",
-      imagePath: 'assets/kiosk1.png',
-      price: 99,
-      category: Kiosk2ItemCategory.kiosk2CategoryX,
+      name: "Afritada",
+      description:
+          "A tomato-based chicken stew with potatoes, carrots, and bell peppers.",
+      imagePath: 'assets/kiosk2.png',
+      price: 140,
+      category: Kiosk2ItemCategory.main,
       availableAddons: [
-        Addon(name: 'piqls', price: 10000),
-        Addon(name: 'toms', price: 2),
-        Addon(name: 'kets', price: 3),
+        Addon(name: 'Rice', price: 20),
+        Addon(name: 'Extra Chicken', price: 50),
       ],
     ),
-
     Item(
       serviceName: "Kiosk 2",
-      name: "Borgor3",
-      description: "Cheez",
-      imagePath: 'assets/kiosk1.png',
-      price: 99,
-      category: Kiosk2ItemCategory.kiosk2CategoryX,
+      name: "Dinuguan",
+      description:
+          "A savory stew made from pork offals, cooked in pig’s blood and vinegar.",
+      imagePath: 'assets/kiosk2.png',
+      price: 160,
+      category: Kiosk2ItemCategory.main,
       availableAddons: [
-        Addon(name: 'piqls', price: 10000),
-        Addon(name: 'toms', price: 2),
-        Addon(name: 'kets', price: 3),
+        Addon(name: 'Rice', price: 20),
+        Addon(name: 'Extra Pork', price: 50),
       ],
     ),
-
-    //Category 2
-
     Item(
       serviceName: "Kiosk 2",
-      name: "Cheez",
-      description: "Cheez",
-      imagePath: 'assets/kiosk1.png',
-      price: 99,
-      category: Kiosk2ItemCategory.kiosk2CategoryY,
+      name: "Tinola",
+      description:
+          "A comforting chicken soup with ginger, papaya, and chili leaves.",
+      imagePath: 'assets/kiosk2.png',
+      price: 160,
+      category: Kiosk2ItemCategory.soup,
       availableAddons: [
-        Addon(name: 'piqls', price: 10000),
-        Addon(name: 'toms', price: 2),
-        Addon(name: 'kets', price: 3),
+        Addon(name: 'Rice', price: 20),
+        Addon(name: 'Extra Chicken', price: 50),
       ],
     ),
-
     Item(
       serviceName: "Kiosk 2",
-      name: "Cheez",
-      description: "Cheez",
-      imagePath: 'assets/kiosk1.png',
-      price: 99,
-      category: Kiosk2ItemCategory.kiosk2CategoryY,
+      name: "Chopsuey",
+      description:
+          "A stir-fried vegetable medley with chicken, pork, and shrimp in a savory sauce.",
+      imagePath: 'assets/kiosk2.png',
+      price: 140,
+      category: Kiosk2ItemCategory.main,
       availableAddons: [
-        Addon(name: 'piqls', price: 10000),
-        Addon(name: 'toms', price: 2),
-        Addon(name: 'kets', price: 3),
+        Addon(name: 'Rice', price: 20),
+        Addon(name: 'Extra Shrimp', price: 40),
       ],
     ),
-
-    //Category 3
-
     Item(
       serviceName: "Kiosk 2",
-      name: "Piqls",
-      description: "Cheez",
-      imagePath: 'assets/kiosk1.png',
-      price: 99,
-      category: Kiosk2ItemCategory.kiosk2CategoryZ,
+      name: "Monggo",
+      description: "A hearty mung bean soup with pork and vegetables.",
+      imagePath: 'assets/kiosk2.png',
+      price: 100,
+      category: Kiosk2ItemCategory.soup,
       availableAddons: [
-        Addon(name: 'piqls', price: 10000),
-        Addon(name: 'toms', price: 2),
-        Addon(name: 'kets', price: 3),
+        Addon(name: 'Rice', price: 20),
+        Addon(name: 'Extra Pork', price: 50),
       ],
     ),
-
-    //Kiosk 3
-    //Category 1
     Item(
-      serviceName: "Kiosk 3",
-      name: "adoasld",
-      description: "Cheez",
-      imagePath: 'assets/kiosk1.png',
-      price: 99,
-      category: Kiosk3ItemCategory.kiosk3CategoryX,
+      serviceName: "Kiosk 2",
+      name: "Tortang Talong",
+      description:
+          "Grilled eggplant made into a savory omelette, often served with ground pork.",
+      imagePath: 'assets/kiosk2.png',
+      price: 120,
+      category: Kiosk2ItemCategory.main,
       availableAddons: [
-        Addon(name: 'piqls', price: 10000),
-        Addon(name: 'toms', price: 2),
-        Addon(name: 'kets', price: 3),
+        Addon(name: 'Rice', price: 20),
+        Addon(name: 'Extra Ground Pork', price: 30),
       ],
     ),
-
     Item(
-      serviceName: "Kiosk 3",
-      name: "Borgor2",
-      description: "Cheez",
-      imagePath: 'assets/kiosk1.png',
-      price: 99,
-      category: Kiosk3ItemCategory.kiosk3CategoryX,
+      serviceName: "Kiosk 2",
+      name: "Ampalaya",
+      description:
+          "Stir-fried bitter melon with eggs and onions, a healthy and slightly bitter dish.",
+      imagePath: 'assets/kiosk2.png',
+      price: 100,
+      category: Kiosk2ItemCategory.main,
       availableAddons: [
-        Addon(name: 'piqls', price: 10000),
-        Addon(name: 'toms', price: 2),
-        Addon(name: 'kets', price: 3),
+        Addon(name: 'Rice', price: 20),
+        Addon(name: 'Extra Eggs', price: 20),
       ],
     ),
-
     Item(
-      serviceName: "Kiosk 3",
-      name: "Borgor3",
-      description: "Cheez",
-      imagePath: 'assets/kiosk1.png',
-      price: 99,
-      category: Kiosk3ItemCategory.kiosk3CategoryX,
+      serviceName: "Kiosk 2",
+      name: "Fried Chicken",
+      description:
+          "Crispy fried chicken served with garlic rice and dipping sauce.",
+      imagePath: 'assets/kiosk2.png',
+      price: 160,
+      category: Kiosk2ItemCategory.main,
       availableAddons: [
-        Addon(name: 'piqls', price: 10000),
-        Addon(name: 'toms', price: 2),
-        Addon(name: 'kets', price: 3),
+        Addon(name: 'Rice', price: 20),
+        Addon(name: 'Extra Chicken', price: 50),
       ],
     ),
-
-    //Category 2
-
+    Item(
+      serviceName: "Kiosk 2",
+      name: "Camotecue",
+      description:
+          "Deep-fried camote (sweet potato) served with a sugar syrup dip.",
+      imagePath: 'assets/kiosk2.png',
+      price: 60,
+      category: Kiosk2ItemCategory.snack,
+      availableAddons: [],
+    ),
     Item(
       serviceName: "Kiosk 3",
-      name: "Cheez",
-      description: "Cheez",
-      imagePath: 'assets/kiosk1.png',
-      price: 99,
-      category: Kiosk3ItemCategory.kiosk3CategoryY,
+      name: "Batchoy",
+      description:
+          "A savory noodle soup with pork, beef, and a flavorful broth, topped with chicharron.",
+      imagePath: 'assets/kiosk3.png',
+      price: 150,
+      category: Kiosk3ItemCategory.soup,
       availableAddons: [
-        Addon(name: 'piqls', price: 10000),
-        Addon(name: 'toms', price: 2),
-        Addon(name: 'kets', price: 3),
+        Addon(name: 'Extra Pork', price: 50),
+        Addon(name: 'Extra Noodles', price: 30),
       ],
     ),
-
     Item(
       serviceName: "Kiosk 3",
-      name: "Cheez",
-      description: "Cheez",
-      imagePath: 'assets/kiosk1.png',
-      price: 99,
-      category: Kiosk3ItemCategory.kiosk3CategoryY,
+      name: "Chicken Inasal",
+      description:
+          "Grilled chicken marinated in a tangy and smoky mixture of vinegar, calamansi, and annatto.",
+      imagePath: 'assets/kiosk3.png',
+      price: 160,
+      category: Kiosk3ItemCategory.main,
       availableAddons: [
-        Addon(name: 'piqls', price: 10000),
-        Addon(name: 'toms', price: 2),
-        Addon(name: 'kets', price: 3),
+        Addon(name: 'Rice', price: 20),
+        Addon(name: 'Extra Chicken', price: 50),
       ],
     ),
-
-    //Category 3
-
     Item(
       serviceName: "Kiosk 3",
-      name: "Piqls",
-      description: "Cheez",
-      imagePath: 'assets/kiosk1.png',
-      price: 99,
-      category: Kiosk3ItemCategory.kiosk3CategoryZ,
+      name: "Pininyahang Manok",
+      description:
+          "A chicken stew with pineapple, carrots, and bell peppers in a creamy sauce.",
+      imagePath: 'assets/kiosk3.png',
+      price: 180,
+      category: Kiosk3ItemCategory.main,
       availableAddons: [
-        Addon(name: 'piqls', price: 10000),
-        Addon(name: 'toms', price: 2),
-        Addon(name: 'kets', price: 3),
+        Addon(name: 'Rice', price: 20),
+        Addon(name: 'Extra Chicken', price: 50),
+      ],
+    ),
+    Item(
+      serviceName: "Kiosk 3",
+      name: "Nilagang Baboy",
+      description:
+          "A clear, comforting soup made with pork and vegetables like corn, potatoes, and saba bananas.",
+      imagePath: 'assets/kiosk3.png',
+      price: 170,
+      category: Kiosk3ItemCategory.soup,
+      availableAddons: [
+        Addon(name: 'Rice', price: 20),
+        Addon(name: 'Extra Pork', price: 50),
+      ],
+    ),
+    Item(
+      serviceName: "Kiosk 3",
+      name: "Bulalo",
+      description:
+          "A beef shank soup with bone marrow, corn, and vegetables, simmered for hours for rich flavor.",
+      imagePath: 'assets/kiosk3.png',
+      price: 220,
+      category: Kiosk3ItemCategory.soup,
+      availableAddons: [
+        Addon(name: 'Rice', price: 20),
+        Addon(name: 'Extra Beef', price: 80),
+      ],
+    ),
+    Item(
+      serviceName: "Kiosk 3",
+      name: "Tocino",
+      description: "Sweet, cured pork served with garlic rice and a fried egg.",
+      imagePath: 'assets/kiosk3.png',
+      price: 130,
+      category: Kiosk3ItemCategory.main,
+      availableAddons: [
+        Addon(name: 'Rice', price: 20),
+        Addon(name: 'Fried Egg', price: 20),
+      ],
+    ),
+    Item(
+      serviceName: "Kiosk 3",
+      name: "Pinakbet",
+      description:
+          "A vegetable medley of bitter melon, eggplant, and squash cooked with shrimp paste.",
+      imagePath: 'assets/kiosk3.png',
+      price: 120,
+      category: Kiosk3ItemCategory.main,
+      availableAddons: [
+        Addon(name: 'Rice', price: 20),
+        Addon(name: 'Extra Shrimp', price: 40),
+      ],
+    ),
+    Item(
+      serviceName: "Kiosk 3",
+      name: "Afritada",
+      description:
+          "A tomato-based chicken stew with potatoes, carrots, and bell peppers.",
+      imagePath: 'assets/kiosk3.png',
+      price: 140,
+      category: Kiosk3ItemCategory.main,
+      availableAddons: [
+        Addon(name: 'Rice', price: 20),
+        Addon(name: 'Extra Chicken', price: 50),
       ],
     ),
   ];

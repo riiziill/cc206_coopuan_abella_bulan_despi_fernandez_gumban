@@ -33,21 +33,21 @@ class Item<T> implements DisplayableItem {
 }
 
 enum Kiosk1ItemCategory {
-  category1,
-  category2,
-  category3,
+  main,
+  soup,
+  noodles,
+  appetizer,
 }
 
 enum Kiosk2ItemCategory {
-  kiosk2CategoryX,
-  kiosk2CategoryY,
-  kiosk2CategoryZ,
+  main,
+  soup,
+  snack,
 }
 
 enum Kiosk3ItemCategory {
-  kiosk3CategoryX,
-  kiosk3CategoryY,
-  kiosk3CategoryZ,
+  main,
+  soup,
 }
 
 class Addon {
