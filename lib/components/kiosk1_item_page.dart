@@ -1,5 +1,5 @@
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/item.dart';
-import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/services/kiosk1_items.dart';
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/item_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -31,7 +31,7 @@ class _ItemPageState extends State<ItemPage> {
       }
     }
 
-    context.read<Kiosk1Items>().addToCart(item, currentlySelectedAddons);
+    context.read<ServiceItems>().addToCart(item, currentlySelectedAddons);
   }
 
   @override

@@ -10,18 +10,18 @@ import 'package:flutter/material.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/sliver_app_bar.dart';
 import 'package:provider/provider.dart';
 
-class Kiosk1 extends StatefulWidget {
-  const Kiosk1({super.key});
+class Kiosk2 extends StatefulWidget {
+  const Kiosk2({super.key});
 
   @override
-  State<Kiosk1> createState() => _Kiosk1State();
+  State<Kiosk2> createState() => _Kiosk2State();
 }
 
-class _Kiosk1State extends State<Kiosk1> with SingleTickerProviderStateMixin {
+class _Kiosk2State extends State<Kiosk2> with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   List<Tab> _buildCategoryTabs() {
-    return Kiosk1ItemCategory.values.map((category) {
+    return Kiosk2ItemCategory.values.map((category) {
       return Tab(
         text: category.toString().split('.').last,
       );
@@ -29,12 +29,12 @@ class _Kiosk1State extends State<Kiosk1> with SingleTickerProviderStateMixin {
   }
 
   List<Item> _filterItemByCategory(
-      Kiosk1ItemCategory category, List<Item> fullItem) {
+      Kiosk2ItemCategory category, List<Item> fullItem) {
     return fullItem.where((item) => item.category == category).toList();
   }
 
   List<Widget> getItemInThisCategory(List<Item> fullItem) {
-    return Kiosk1ItemCategory.values.map(
+    return Kiosk2ItemCategory.values.map(
       (category) {
         List<Item> categoryItem = _filterItemByCategory(category, fullItem);
 

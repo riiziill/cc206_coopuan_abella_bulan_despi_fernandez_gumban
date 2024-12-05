@@ -1,5 +1,6 @@
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/auth_gate.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/firebase_options.dart';
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/services/clothes_shop.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/services/kiosk1.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/reservation.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/homepage.dart';
@@ -9,7 +10,11 @@ import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/featu
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/receipt.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/settings.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/profile.dart';
-import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/services/kiosk1_items.dart';
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/item_list.dart';
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/services/kiosk2.dart';
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/services/kiosk3.dart';
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/services/print_shop.dart';
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/services/salon_shop.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,7 +24,7 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(
     ChangeNotifierProvider(
-      create: (context) => Kiosk1Items(),
+      create: (context) => ServiceItems(),
       child: const MyApp(),
     ),
   );
@@ -48,6 +53,11 @@ class MyApp extends StatelessWidget {
           'setting': (BuildContext ctc) => const settings(),
           'profile': (BuildContext ctc) => Profile(),
           'kiosk1': (BuildContext ctc) => const Kiosk1(),
+          'kiosk2': (BuildContext ctc) => const Kiosk2(),
+          'kiosk3': (BuildContext ctc) => const Kiosk3(),
+          'printShop': (BuildContext ctc) => const PrintServicePage(),
+          'salonShop': (BuildContext ctc) => const SalonServicePage(),
+          'clothesShop': (BuildContext ctc) => const ClothesShopPage(),
         });
   }
 }

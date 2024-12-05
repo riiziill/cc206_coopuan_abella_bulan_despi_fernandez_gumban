@@ -5,6 +5,9 @@ class FirestoreService {
   final CollectionReference orders =
       FirebaseFirestore.instance.collection('orders');
 
+  final CollectionReference orderHistory =
+      FirebaseFirestore.instance.collection('orderHistory');
+
   final currentUser = FirebaseAuth.instance.currentUser!;
 
   Future<void> saveOrderToDatabase(String receipt) async {

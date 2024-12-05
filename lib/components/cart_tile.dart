@@ -1,7 +1,7 @@
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/item.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/quantity_selector.dart';
-import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/cart_item.dart';
-import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/services/kiosk1_items.dart';
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/cart_item.dart';
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/item_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -11,8 +11,8 @@ class MyCartTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<Kiosk1Items>(
-      builder: (context, kiosk1, child) => Container(
+    return Consumer<ServiceItems>(
+      builder: (context, kiosk, child) => Container(
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(8),
@@ -37,6 +37,7 @@ class MyCartTile extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      Text(cartItem.item.serviceName),
                       Text(cartItem.item.name),
                       Text('\$' + cartItem.item.price.toString()),
                       const SizedBox(
@@ -46,10 +47,10 @@ class MyCartTile extends StatelessWidget {
                         quantity: cartItem.quantity,
                         item: cartItem.item,
                         onDecrement: () {
-                          kiosk1.removeFromCart(cartItem);
+                          kiosk.removeFromCart(cartItem);
                         },
                         onIncremenet: () {
-                          kiosk1.addToCart(
+                          kiosk.addToCart(
                               cartItem.item, cartItem.selectedAddon);
                         },
                       ),

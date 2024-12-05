@@ -87,19 +87,19 @@ class _HomePageState extends State<HomePage> {
         page = 'kiosk1';
         break;
       case 'KIOSK 2':
-        page = '';
+        page = 'kiosk2';
         break;
       case 'KIOSK 3':
-        page = '';
+        page = 'kiosk3';
         break;
       case 'PRINT':
-        page = '';
+        page = 'printShop';
         break;
       case 'SALON':
-        page = '';
+        page = 'salonShop';
         break;
       case 'CLOTHES':
-        page = '';
+        page = 'clothesShop';
         break;
       default:
         throw Exception('Unknown service');

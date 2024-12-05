@@ -1,16 +1,18 @@
-import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/cart_page.dart';
 import 'package:flutter/material.dart';
 
 class MySliverAppBar extends StatelessWidget {
   final Widget child;
   final Widget categories;
   final Widget serviceName;
+  final Widget redirectPage; // New property for the dynamic page
 
-  const MySliverAppBar(
-      {super.key,
-      required this.child,
-      required this.categories,
-      required this.serviceName});
+  const MySliverAppBar({
+    super.key,
+    required this.child,
+    required this.categories,
+    required this.serviceName,
+    required this.redirectPage, // Require the redirect page
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +27,11 @@ class MySliverAppBar extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const CartPage(),
+                builder: (context) => redirectPage, // Use the dynamic page
               ),
             );
           },
-          icon: Icon(Icons.shopping_cart),
+          icon: const Icon(Icons.shopping_cart),
         ),
       ],
       backgroundColor: Colors.white,
