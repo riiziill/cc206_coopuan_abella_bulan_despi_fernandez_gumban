@@ -1,3 +1,6 @@
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/auth_service.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class signIn extends StatefulWidget {
@@ -213,6 +216,7 @@ class _signInState extends State<signIn> {
                     ),
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
+                        register();
                         showDialog(
                           context: context,
                           builder: (BuildContext context) {
@@ -244,7 +248,7 @@ class _signInState extends State<signIn> {
                                     ),
                                   ),
                                   onPressed: () =>
-                                      Navigator.pushNamed(context, 'homePage'),
+                                      Navigator.pushNamed(context, 'logIn'),
                                   child: const Text('CONTINUE'),
                                 ),
                               ],
@@ -323,5 +327,34 @@ class _signInState extends State<signIn> {
         ),
       ),
     );
+  }
+
+  void register() async {
+    final _authService = AuthService();
+
+    try {
+      UserCredential userCredential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: emailField.text,
+        password: password1Field.text,
+      );
+
+      FirebaseFirestore.instance
+          .collection("users")
+          .doc(userCredential.user!.email)
+          .set({
+        'username': usernameField.text,
+        'email': emailField.text,
+        'wvsuID': idField.text,
+        'bio': 'Bio is empty.'
+      });
+    } on FirebaseAuthException catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(e.toString()),
+        ),
+      );
+    }
   }
 }

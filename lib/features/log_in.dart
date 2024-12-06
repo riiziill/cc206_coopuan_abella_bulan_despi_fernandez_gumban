@@ -1,3 +1,4 @@
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/features/auth_service.dart';
 import 'package:flutter/material.dart';
 
 class logIn extends StatefulWidget {
@@ -50,10 +51,9 @@ class _logInState extends State<logIn> {
                 SizedBox(
                   width: 300,
                   child: TextFormField(
-                    controller: idField,
+                    controller: emailField,
                     decoration: const InputDecoration(
-                      labelText: 'WVSU ID',
-                      hintText: 'Example: 2022M0000',
+                      labelText: 'WVSU email',
                       labelStyle: TextStyle(fontSize: 10.0),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20.0)),
@@ -62,14 +62,12 @@ class _logInState extends State<logIn> {
                       filled: true,
                       fillColor: Colors.transparent,
                     ),
-                    maxLength: 9,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter your ID';
-                      } else if (!RegExp(r'^[a-zA-Z0-9]+$').hasMatch(value)) {
-                        return 'Special characters are not allowed';
-                      } else if (value.length < 9) {
-                        return 'ID must be 9 characters';
+                        return 'Please enter your WVSU email.';
+                      }
+                      if (!RegExp("\b*@wvsu\.edu\.ph\$").hasMatch(value)) {
+                        return 'Please enter a valid WVSU email';
                       }
                       return null;
                     },
@@ -129,44 +127,7 @@ class _logInState extends State<logIn> {
                     ),
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialog(
-                              title: const Row(
-                                children: [
-                                  Icon(Icons.check_circle, color: Colors.green),
-                                  SizedBox(width: 10),
-                                  Text(
-                                    'Success',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              content: const Text(
-                                'You have logged in successfully!',
-                                style: TextStyle(fontSize: 14),
-                              ),
-                              actions: [
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color(0xFF0A0170),
-                                    foregroundColor: Colors.white,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20.0),
-                                    ),
-                                  ),
-                                  onPressed: () =>
-                                      Navigator.pushNamed(context, 'homePage'),
-                                  child: const Text('CONTINUE'),
-                                ),
-                              ],
-                            );
-                          },
-                        );
+                        login();
                       } else {
                         showDialog(
                           context: context,
@@ -239,5 +200,94 @@ class _logInState extends State<logIn> {
         ),
       ),
     );
+  }
+
+  void login() async {
+    final _authService = AuthService();
+
+    try {
+      await _authService.signInWithEmailPassword(
+        emailField.text,
+        password1Field.text,
+      );
+
+      if (true) {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: const Row(
+                children: [
+                  Icon(Icons.check_circle, color: Colors.green),
+                  SizedBox(width: 10),
+                  Text(
+                    'Success',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                ],
+              ),
+              content: const Text(
+                'You have logged in successfully!',
+                style: TextStyle(fontSize: 14),
+              ),
+              actions: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF0A0170),
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                  ),
+                  onPressed: () => Navigator.pushNamed(context, 'homePage'),
+                  child: const Text('CONTINUE'),
+                ),
+              ],
+            );
+          },
+        );
+      }
+    } catch (e) {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Row(
+              children: [
+                Icon(Icons.warning, color: Colors.red),
+                SizedBox(width: 10),
+                Text(
+                  'Errors Found',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                )
+              ],
+            ),
+            content: Text(
+              'One of the required fields is empty or contains invalid data. Please check your input. ${e.toString()}',
+              style: TextStyle(fontSize: 14),
+            ),
+            actions: [
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF0A0170),
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                ),
+                onPressed: () => Navigator.pop(context),
+                child: const Text('OKAY'),
+              ),
+            ],
+          );
+        },
+      );
+    }
   }
 }

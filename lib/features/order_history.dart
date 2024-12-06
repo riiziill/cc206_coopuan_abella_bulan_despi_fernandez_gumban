@@ -1,56 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:intl/intl.dart';
 
 class OrderHistory extends StatelessWidget {
-  final List<Map<String, String>> orderHistory = [
-    {
-      'title': 'Order #1234',
-      'content': 'Completed on Oct 10, 2024',
-      'status': 'Completed'
-    },
-    {
-      'title': 'Order #1235',
-      'content': 'Cancelled on Oct 15, 2024',
-      'status': 'Cancelled'
-    },
-    {
-      'title': 'Order #1236',
-      'content': 'Pending since Nov 1, 2024',
-      'status': 'Pending'
-    },
-    {
-      'title': 'Order #1237',
-      'content': 'Completed on Nov 5, 2024',
-      'status': 'Completed'
-    },
-    {
-      'title': 'Order #1238',
-      'content': 'Cancelled on Nov 10, 2024',
-      'status': 'Cancelled'
-    },
-  ];
+  Future<List<Map<String, dynamic>>> getOrderHistory() async {
+    String userEmail = FirebaseAuth.instance.currentUser!.email!;
 
-  IconData _getIcon(String status) {
-    switch (status) {
-      case 'Completed':
-        return Icons.check_circle;
-      case 'Cancelled':
-        return Icons.cancel;
-      case 'Pending':
-      default:
-        return Icons.hourglass_top;
-    }
-  }
+    QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+        .collection('orders')
+        .where('userEmail', isEqualTo: userEmail)
+        .get();
 
-  Color _getIconColor(String status) {
-    switch (status) {
-      case 'Completed':
-        return Colors.green;
-      case 'Cancelled':
-        return Colors.red;
-      case 'Pending':
-      default:
-        return Colors.orange;
+    List<Map<String, dynamic>> orders = [];
+    for (var doc in querySnapshot.docs) {
+      var orderData = doc.data() as Map<String, dynamic>;
+
+      Timestamp timestamp = orderData['date'] as Timestamp;
+      DateTime dateTime = timestamp.toDate();
+      String formattedDate = DateFormat('yyyy-MM-dd HH:mm:ss').format(dateTime);
+
+      orders.add({
+        'date': formattedDate,
+        'order': orderData['order'],
+        'timestamp': dateTime,
+      });
     }
+
+    orders.sort((a, b) => b['timestamp'].compareTo(a['timestamp']));
+
+    return orders;
   }
 
   @override
@@ -60,25 +39,93 @@ class OrderHistory extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: Text('Order History'),
       ),
-      body: ListView.builder(
-        itemCount: orderHistory.length,
-        itemBuilder: (context, index) {
-          final order = orderHistory[index];
-          return Card(
-            margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-            child: ListTile(
-              leading: Icon(
-                _getIcon(order['status']!),
-                color: _getIconColor(order['status']!),
-              ),
-              title: Text(
-                order['title']!,
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              subtitle: Text(order['content']!),
+      body: FutureBuilder<List<Map<String, dynamic>>>(
+        future: getOrderHistory(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator());
+          }
+
+          if (snapshot.hasError) {
+            return Center(child: Text('Error fetching orders'));
+          }
+
+          if (!snapshot.hasData || snapshot.data!.isEmpty) {
+            return Center(child: Text('No orders found'));
+          }
+
+          var orders = snapshot.data!;
+
+          return SingleChildScrollView(
+            child: Column(
+              children: [
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: orders.length,
+                  itemBuilder: (context, index) {
+                    final order = orders[index];
+                    return Card(
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 8.0, horizontal: 16.0),
+                      child: ListTile(
+                        title: Text(
+                          'Order placed on: ${order['date']}',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        subtitle:
+                            Text(order['order']!.substring(0, 30) + '...'),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  OrderDetailScreen(order: order),
+                            ),
+                          );
+                        },
+                      ),
+                    );
+                  },
+                ),
+              ],
             ),
           );
         },
+      ),
+    );
+  }
+}
+
+class OrderDetailScreen extends StatelessWidget {
+  final Map<String, dynamic> order;
+
+  OrderDetailScreen({required this.order});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Order Details'),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Order Date: ${order['date']}',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              ),
+              SizedBox(height: 10),
+              Text(
+                'Order Details:\n${order['order']}',
+                style: TextStyle(fontSize: 16),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

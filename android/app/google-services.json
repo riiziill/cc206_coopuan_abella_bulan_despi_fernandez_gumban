@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "249012531361",
+    "project_id": "digicoop-539ab",
+    "storage_bucket": "digicoop-539ab.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249012531361:android:1e8e483ed0a78f23ea00e0",
+        "android_client_info": {
+          "package_name": "com.digicoop.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHv_73sg4JEGyOOX5w_EU0HNk5ICI1f88"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249012531361:android:e9439df2d649225cea00e0",
+        "android_client_info": {
+          "package_name": "com.example.cc206_magic_calculator_abella_bulan_despi_fernandez_gumban"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHv_73sg4JEGyOOX5w_EU0HNk5ICI1f88"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
