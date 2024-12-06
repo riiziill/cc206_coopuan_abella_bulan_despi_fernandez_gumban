@@ -86,6 +86,38 @@ class _ClothesShopPageState extends State<ClothesShopPage> {
       ),
       body: Column(
         children: [
+          Container(
+            padding: const EdgeInsets.all(16.0),
+            color: const Color(0xFF0A264A),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Text(
+                  'West Clothes Shop',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                SizedBox(height: 8),
+                Text(
+                  'Your one-stop shop for stylish and affordable clothes. Explore our latest collection of clothes and accessories!',
+                  style: TextStyle(color: Colors.white),
+                ),
+                SizedBox(height: 8),
+                Text(
+                  'Operating Hours: Mon-Fri: 8:00 AM - 5:00 PM',
+                  style: TextStyle(color: Colors.white),
+                ),
+                SizedBox(height: 8),
+                Text(
+                  'Contact: +1 234 567 890',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ],
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: DropdownButton<String>(

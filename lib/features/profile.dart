@@ -116,28 +116,6 @@ class _ProfileState extends State<Profile> {
                     width: 450,
                     child: OutlinedButton(
                       onPressed: () {
-                        Report(context);
-                      },
-                      child: Text('Report A Problem',
-                          style: TextStyle(
-                              color: const Color.fromARGB(255, 0, 0, 0))),
-                      style: OutlinedButton.styleFrom(
-                        backgroundColor:
-                            const Color.fromARGB(255, 255, 255, 255),
-                        side: BorderSide(
-                            color: const Color.fromARGB(255, 0, 0, 0),
-                            width: 0.5),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 15),
-                  SizedBox(
-                    width: 450,
-                    child: OutlinedButton(
-                      onPressed: () {
                         logout(context);
                       },
                       child: Text('Log Out',

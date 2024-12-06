@@ -3,9 +3,17 @@ import 'package:provider/provider.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/cart_tile.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/receipt_page.dart';
 import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/components/item_list.dart';
+import 'package:cc206_magic_calculator_abella_bulan_despi_fernandez_gumban/services/database.dart';
 
-class CartPage extends StatelessWidget {
+class CartPage extends StatefulWidget {
   const CartPage({super.key});
+
+  @override
+  State<CartPage> createState() => _CartPageState();
+}
+
+class _CartPageState extends State<CartPage> {
+  FirestoreService db = FirestoreService();
 
   @override
   Widget build(BuildContext context) {
@@ -127,7 +135,10 @@ class CartPage extends StatelessWidget {
                             ),
                             actions: <Widget>[
                               TextButton(
-                                onPressed: () => Navigator.pop(context, false),
+                                onPressed: () {
+                                  db.orderCancelledNotif();
+                                  Navigator.pop(context, false);
+                                },
                                 child: const Text('Cancel'),
                               ),
                               TextButton(
@@ -141,6 +152,7 @@ class CartPage extends StatelessWidget {
                       false;
 
                   if (shouldProceed) {
+                    db.orderConfirmedNotif();
                     Navigator.push(
                       context,
                       MaterialPageRoute(

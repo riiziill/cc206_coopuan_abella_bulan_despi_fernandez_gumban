@@ -311,23 +311,6 @@ class _settingsState extends State<settings> {
                           child: const Text('CANCEL'),
                         ),
                       ),
-                      const SizedBox(height: 30),
-                      SizedBox(
-                        width: 300,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.red,
-                            foregroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20.0),
-                            ),
-                          ),
-                          onPressed: () {
-                            deleteAccount();
-                          },
-                          child: const Text('DELETE ACCOUNT'),
-                        ),
-                      ),
                     ],
                   ),
                 ),

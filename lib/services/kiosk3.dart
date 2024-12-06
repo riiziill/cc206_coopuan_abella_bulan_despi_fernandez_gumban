@@ -102,7 +102,7 @@ class _Kiosk3State extends State<Kiosk3> with SingleTickerProviderStateMixin {
                           Icon(Icons.access_time, color: Colors.grey, size: 16),
                           SizedBox(width: 5),
                           Text(
-                            "Open: 7:00 AM - 7:00 PM",
+                            "Open: 9:00 AM - 4:00 PM",
                             style: TextStyle(fontSize: 14),
                           ),
                         ],
@@ -113,7 +113,7 @@ class _Kiosk3State extends State<Kiosk3> with SingleTickerProviderStateMixin {
                           Icon(Icons.location_on, color: Colors.grey, size: 16),
                           SizedBox(width: 5),
                           Text(
-                            "Location: Bakery Corner, Level 2",
+                            "Location: West Coop, Level 2",
                             style: TextStyle(fontSize: 14),
                           ),
                         ],

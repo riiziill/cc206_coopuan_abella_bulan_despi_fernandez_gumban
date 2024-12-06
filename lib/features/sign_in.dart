@@ -248,7 +248,7 @@ class _signInState extends State<signIn> {
                                     ),
                                   ),
                                   onPressed: () =>
-                                      Navigator.pushNamed(context, 'homePage'),
+                                      Navigator.pushNamed(context, 'logIn'),
                                   child: const Text('CONTINUE'),
                                 ),
                               ],
